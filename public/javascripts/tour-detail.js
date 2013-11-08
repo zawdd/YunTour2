@@ -2,6 +2,7 @@ function adjustStyle(n) {
     n = parseInt(n),
     n >= 1100 && n < 1300 ? ($("#map-left").css("left", "-140px"), $("#map-right").css("right", "-140px")) : n >= 400 && n < 1100 ? ($("#map-left").css("left", "-200px"), $("#map-right").css("right", "-200px")) : ($("#map-left").css("left", "-30px"), $("#map-right").css("right", "-60px"))
 }
+
 function InfoBox(n) {
     n = n || {},
     google.maps.OverlayView.apply(this, arguments),

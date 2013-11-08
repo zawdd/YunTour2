@@ -10,19 +10,26 @@
     
 	<link href="/stylesheets/main-css.css" rel="stylesheet">
 	<link href="/stylesheets/tour-detail.css" rel="stylesheet">
+
 	<link href="./skin/blue.monday/jplayer.blue.monday.css" rel="stylesheet" type="text/css" />
 	<script src="/javascripts/jquery.min.js"></script>
 	<script src="/javascripts/jqueryui.js"></script>
+
     <script src="/javascripts/jquery.qtip.min.js"></script>
 	<script src="/javascripts/jquery.jplayer.min.js"></script>
 	<script src="/javascripts/jquery.expander.min.js"></script>
 	<script src="/javascripts/jquery.jscrollpane.min.js"></script>
     <script src="/javascripts/jquery.mousewheel.js"></script>
+	<script src="/javascripts/jquery.qrcode.min.js"></script>
     <script src="./javascripts/jquery.jplayer.min.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyADCPDkEWSeGpUTj_c8Zem6pCHI2v-SrOA&amp;sensor=false"></script>
     <script src="/javascripts/tour-detail.js"></script>  
 
-
+	<script type="text/javascript">
+		function showqrcode(){
+			$('#showcode').slideToggle(1000);
+		}
+	</script>
     <script type="text/javascript">
     var strReadMore = "Plus...";
     var strReadLess = "Read less";
@@ -51,10 +58,7 @@
                 var directionsDisplay;
 		var directionsService = new google.maps.DirectionsService();
 		var map;
-<<<<<<< HEAD
 		 
-=======
->>>>>>> 30623feb1a160ec6f9b1b16e10110de67a1c8be1
 		/**/
 		var startPoint = new google.maps.LatLng(23.060720601586535, 113.38701725006104);//起点
 		var midPoint1 = new google.maps.LatLng(23.057068097970397, 113.39070796966553);//中间点
@@ -66,13 +70,6 @@
 		var temp = new google.maps.LatLng(<%= stop.locate[0] %>, <%= stop.locate[1] %>);
 		tour.push(temp);
                 <% }); %>		
-<<<<<<< HEAD
-=======
-		//tour.push(startPoint);
-		//tour.push(midPoint1);
-		//tour.push(midPoint2);
-		//tour.push(endPoint);
->>>>>>> 30623feb1a160ec6f9b1b16e10110de67a1c8be1
 
 		var waypts = [];
 		
@@ -130,12 +127,8 @@
 		    position: location,
 		    map: map
 		  });
-<<<<<<< HEAD
 			setIcon(marker, no);
 	        }
-=======
-	    }
->>>>>>> 30623feb1a160ec6f9b1b16e10110de67a1c8be1
 		
     </script>
 
@@ -174,11 +167,7 @@
 <div id="map-container">
 	<div id="tour-main">
 		<% line.stops.forEach(function(stop, index) { %>
-<<<<<<< HEAD
         <div id="<%= stop.num %>" class="tour-player-container" style="z-index=1002; display: none;">
-=======
-        <div id="<%= stop.num-1 %>" class="tour-player-container" style="z-index=1002; display: none;">
->>>>>>> 30623feb1a160ec6f9b1b16e10110de67a1c8be1
             <div class="tour-player-inner clearfix">
 				<div class="preview">
                     <a href="javascript:void(0);" class="question ir">更多信息</a>
@@ -217,13 +206,8 @@
 							</ul>
                         </div>
                     </div>
-<<<<<<< HEAD
                     <div id="jquery_jplayer_<%= stop.num %>" class="jp-jplayer"></div>
                   	<div id="jp_container_<%= stop.num %>" class="jp-audio" style="width: 92%; margin: 10px 10px 10px 10px;">
-=======
-                    <div id="jquery_jplayer_1" class="jp-jplayer"></div>
-                  	<div id="jp_container_1" class="jp-audio" style="width: 92%; margin: 10px 10px 10px 10px;">
->>>>>>> 30623feb1a160ec6f9b1b16e10110de67a1c8be1
 						<div class="jp-type-single">
 							<div class="jp-gui jp-interface" style="height: 90px;">
 								<ul class="jp-controls">
@@ -256,11 +240,7 @@
 						</div>
 					</div>
 					<script type="text/javascript">
-<<<<<<< HEAD
 						var myPlayer = $("#jquery_jplayer_<%= stop.num %>").jPlayer({
-=======
-						var myPlayer = $("#jquery_jplayer_1").jPlayer({
->>>>>>> 30623feb1a160ec6f9b1b16e10110de67a1c8be1
 							ready: function (event) {
 								$(this).jPlayer("setMedia", {
 									mp3: "<%= stop.stopAudio %>"
@@ -269,14 +249,10 @@
 							swfPath: "javascripts",
 							supplied: "mp3",
 							preload: 'auto',
-<<<<<<< HEAD
 							wmode: "window",
 							cssSelectorAncestor: "#jp_container_<%= stop.num %>"
 						}).bind($.jPlayer.event.play, function(){
 							$(this).jPlayer("pauseOthers");
-=======
-							wmode: "window"
->>>>>>> 30623feb1a160ec6f9b1b16e10110de67a1c8be1
 						});
 					</script>
                 </div>
@@ -327,18 +303,11 @@
 	<script type="text/javascript">
 	var indexImg = 0;
 	function showSlide() {
-<<<<<<< HEAD
 		var nu = no+1
 		var howmany = $("#"+nu).find(".tour-img-slide-item").length;
 		$("#"+nu).find(".tour-img-slide-item").attr("style", "display:none;");
 		$("#"+nu).find(".tour-img-slide-item:eq("+ indexImg +")").attr("style", "display:inline-block;");
 		//console.log(howmany+indexImg);
-=======
-		var howmany = $("#"+no).find(".tour-img-slide-item").length;
-		$("#"+no).find(".tour-img-slide-item").attr("style", "display:none;");
-		$("#"+no).find(".tour-img-slide-item:eq("+ indexImg +")").attr("style", "display:inline-block;");
-		console.log(howmany+indexImg);
->>>>>>> 30623feb1a160ec6f9b1b16e10110de67a1c8be1
 		indexImg++;
 		if(indexImg>=howmany) {indexImg=0;}		
 	}
@@ -409,17 +378,14 @@
             			// $(".tt-name").html(name);
             		});
             	});
-<<<<<<< HEAD
 							$(".tour-thumbs ul li a:first").trigger("click");
-=======
->>>>>>> 30623feb1a160ec6f9b1b16e10110de67a1c8be1
             });
             </script>
         </div>
         <!-- end .tour-thumbs-container //-->
-        <p class="tour-maindesc">
-			<%= line.lineSummary %>
-        </p>        
+        <div class="tour-maindesc">
+			<%- lineSummary %>
+        </div>        
     </div>
     <!-- end #tour-ratings //-->
   <aside id="tour-aside">
@@ -447,6 +413,27 @@
         <!-- end .tour-author //-->
 
     </aside>
+	<aside id="tour-aside" >	
+
+	<div class="tour-author" >
+		<center><div>			
+			<h5 style="color:#FF8C00"><b><a onclick="showqrcode()">扫描二维码，出发去旅行！</a><b></h5>
+			<br>
+		</div></center>
+		<div id="showcode" style="display:none;">
+			<center><div id="qrcode" ></div></center>
+			<script>
+			jQuery(function(){
+				jQuery('#qrcode').qrcode("http://103.31.20.134:3000/browseByID?lineid=<%= lineId %>");
+			});
+			</script>
+			<div>
+				<!--<center><h6 style="color:#F4A460;">利用云游APP扫描二维码，把该线路加入手机中。</h6></center>-->
+				<br>
+			</div>
+		</div>
+	</div>
+	</aside>
 </div>
 
 

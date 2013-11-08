@@ -2,32 +2,40 @@
 <html>
   <head>
     <title><%= title %></title>
-<<<<<<< HEAD
 		<link rel="icon" href="/ic_launcher.png" type="image/x-icon">
     <link rel="shortcut icon" href="/ic_launcher.png" type="image/x-icon">    
-=======
-    
->>>>>>> 30623feb1a160ec6f9b1b16e10110de67a1c8be1
     <link rel='stylesheet' href='/stylesheets/bootstrap.css' />
     <link rel='stylesheet' href='/stylesheets/bootstrap-responsive.css' />
     <link rel='stylesheet' href='/stylesheets/main-css.css' />
-    <script src="./javascripts/jquery.min.js"></script>
-<<<<<<< HEAD
-		<script src="/javascripts/libs.js"></script>
-=======
->>>>>>> 30623feb1a160ec6f9b1b16e10110de67a1c8be1
+
+    <script src="/javascripts/jquery.min.js"></script>
+	<script src="/javascripts/libs.js"></script>
     <script src="/javascripts/bootstrap.js"></script>
-    
+	<script src="/javascripts/jquery.qrcode.min.js"></script>
+    <script> 
+	
+	function loadqrcode(w,h){		
+		jQuery(function(){
+			jQuery('#qrcode').qrcode({
+				render : "canvas",
+				text : "http://goo.gl/bX01Pp",
+				width : w,
+				height : h
+				});
+		});
+		
+	}
+	
+	function downcode(){
+		$('#myModal').modal('show');
+	}
+	</script>
   </head>
-<body>
+<body onload="loadqrcode(380,380)">
 <% include header %>
 
 <div id="main-home">
-<<<<<<< HEAD
     <div id="myCarousel" class="carousel slide" style="margin:0 0 20px 0; width:100%;">
-=======
-    <div id="myCarousel" class="carousel slide" style="margin:0 0 20px 0;">
->>>>>>> 30623feb1a160ec6f9b1b16e10110de67a1c8be1
 	  <ol class="carousel-indicators">
 	    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 	    <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -75,15 +83,32 @@
                 可以从网站这里下载手机app~~~随时随地分享~
             </p>
 
-<<<<<<< HEAD
-            <a href="/YouTour.apk" class="button"><span>App下载</span></a>
-=======
-            <a href="/download" class="button"><span>App下载</span></a>
->>>>>>> 30623feb1a160ec6f9b1b16e10110de67a1c8be1
+			<a class="button" onclick="downcode()"><span>App下载</span></a> 
             <img src="/images/experience-tours.png" class="phone" alt="">
                         
         </div>
     </div>
     </div>
+	
+
+	
+	 <div id="myModal" class="modal hide fade">            
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h3 style="color:#FF8C00"><b>扫描二维码下载到手机<b></h3>
+            </div><!--Modal header-->
+            <div class="modal-body">						
+					<center><div id="qrcode" ></div></center>
+            </div><!--Modal body-->
+            <div class="modal-footer">
+              <a style="color:#F4A460"" href="http://goo.gl/bX01Pp"><b>本地下载<b></a>
+            </div><!--Modal footer-->
+     </div> <!--Modal-->
+		  
+		
   </body>
+	
+
+	
+	
 </html>
