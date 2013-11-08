@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title><%= title %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+		 <link rel="icon" href="/ic_launcher.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/ic_launcher.png" type="image/x-icon">
+    
+	<link href="/stylesheets/main-css.css" rel="stylesheet">
+	<link href="/stylesheets/tour-detail.css" rel="stylesheet">
+	<link href="./skin/blue.monday/jplayer.blue.monday.css" rel="stylesheet" type="text/css" />
+	<script src="/javascripts/jquery.min.js"></script>
+	<script src="/javascripts/jqueryui.js"></script>
+    <script src="/javascripts/jquery.qtip.min.js"></script>
+	<script src="/javascripts/jquery.jplayer.min.js"></script>
+	<script src="/javascripts/jquery.expander.min.js"></script>
+	<script src="/javascripts/jquery.jscrollpane.min.js"></script>
+    <script src="/javascripts/jquery.mousewheel.js"></script>
+    <script src="./javascripts/jquery.jplayer.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyADCPDkEWSeGpUTj_c8Zem6pCHI2v-SrOA&amp;sensor=false"></script>
+    <script src="/javascripts/tour-detail.js"></script>  
+
+
+    <script type="text/javascript">
+    var strReadMore = "Plus...";
+    var strReadLess = "Read less";
+    var strShow = "Sample";;
+    var addFav = "Add to Favorites";
+    var addedFav = "Added to Favorites";
+    </script>
+    <script type="text/javascript">
+		var g = google.maps, 
+		marker_width = 32,
+		marker_height = 48,
+		setIcon = function(marker, n) {
+			debugger;
+			var img = new g.MarkerImage("/images/" + n,
+		    new g.Size(marker_width, marker_height), 
+		    new g.Point(0, 0), 
+		    new g.Point(marker_width / 2, marker_height));
+		    marker.setIcon(img);
+		};
+        var waypoints = [];
+        var stops = [];
+        waypoints.push({"waypointID":4331,"encryptLinkID":"y8WsWmL5WcQ","encryptMapID":"","linkID":1009,"linkTo":"stop","order":1,"latitude":48.8576164245605,"longitude":2.3472375869751,"x":null,"y":null,"mapID":null});
+        var ua = navigator.userAgent,
+            clickEvent = (ua.match(/iPad/i)) ? "touchstart" : "click",
+            baseUrl = '/';
+                var directionsDisplay;
+		var directionsService = new google.maps.DirectionsService();
+		var map;
+<<<<<<< HEAD
+		 
+=======
+>>>>>>> 30623feb1a160ec6f9b1b16e10110de67a1c8be1
+		/**/
+		var startPoint = new google.maps.LatLng(23.060720601586535, 113.38701725006104);//起点
+		var midPoint1 = new google.maps.LatLng(23.057068097970397, 113.39070796966553);//中间点
+		var midPoint2 = new google.maps.LatLng(23.05653502158676, 113.39581489562988);//中间点
+		var endPoint = new google.maps.LatLng(23.051914937836166, 113.3993124961853);//终点
+		var ss = new google.maps.LatLng(<%= line.locate[0] %>, <%= line.locate[1] %>);
+		var tour = [];//完整的一条路线经纬度坐标，包括起点、终点
+		<% line.stops.forEach(function(stop, index) { %>
+		var temp = new google.maps.LatLng(<%= stop.locate[0] %>, <%= stop.locate[1] %>);
+		tour.push(temp);
+                <% }); %>		
+<<<<<<< HEAD
+=======
+		//tour.push(startPoint);
+		//tour.push(midPoint1);
+		//tour.push(midPoint2);
+		//tour.push(endPoint);
+>>>>>>> 30623feb1a160ec6f9b1b16e10110de67a1c8be1
+
+		var waypts = [];
+		
+		function initialize() {
+			directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers : true});
+
+		  var mapOptions = {
+		    zoom: 14,
+		    mapTypeId: google.maps.MapTypeId.ROADMAP,
+		    center: ss
+		  }
+		  map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+		  directionsDisplay.setMap(map);
+		
+		  calcRoute();
+
+		  for (i=0;i<tour.length;i++)
+		  {
+			  placeMarker(tour[i], i+1);
+
+		  }
+		 
+		 
+	
+	    }
+	    
+	    function calcRoute() {
+	    
+		  for (i=1;i<tour.length;i++)
+		  {
+		    waypts.push({
+              		location: tour[i],
+              		stopover: false});
+		  }
+			
+	      var request = {
+		    origin: tour[0],
+		    destination: tour[tour.length-1],
+		    waypoints: waypts,
+		    optimizeWaypoints: false,
+		    travelMode: google.maps.TravelMode.DRIVING
+	      };
+		  directionsService.route(request, function(response, status) {
+		    if (status == google.maps.DirectionsStatus.OK) {
+		    	directionsDisplay.setDirections(response);			
+
+		    }
+		    });
+		    
+
+	    }
+		
+		function placeMarker(location, no) {
+		  var marker = new google.maps.Marker({
+		    position: location,
+		    map: map
+		  });
+<<<<<<< HEAD
+			setIcon(marker, no);
+	        }
+=======
+	    }
+>>>>>>> 30623feb1a160ec6f9b1b16e10110de67a1c8be1
+		
+    </script>
+
+</head>
+<body onload="initialize()">
+<% include header %>
+
+<input id="lineId" name="lineId" type="hidden" value="<%= lineId %>">
+
+<!-- end lightbox-window //-->
+
+<div class="tour-title clearfix">
+	<div class="tour-meta">
+		<h2 id="lineName" name="lineName">
+			<%= line.lineName %></h2>
+        <div class="tour-details">
+        	<span class="tour-icons">
+                <span class="icon-stops" oldtitle="Tour stop(s)"><%= Object.keys(line.stops).length %>站点</span>
+		<span class="icon-duration" oldtitle="Duration" aria-describedby="ui-tooltip-3"><%= line.duration %> mins</span>
+		<span class="icon-distance" oldtitle="Distance" aria-describedby="ui-tooltip-4"><%= line.lineLength %> km</span>
+            </span>
+			<span class="td-pricing td-free" title="免费观看">免费</span>
+		</div>
+    </div>
+    <div class="main-rating">
+		<span class="stars-main">4</span>
+	</div>
+    <!-- end .tour-meta //-->
+    <div class="addfav-outer">
+        <a href="javascript:void(0);" class="add-fav">
+            <span></span>
+        </a>
+	</div>
+</div>
+<!-- end .tour-title //-->
+<div id="map-container">
+	<div id="tour-main">
+		<% line.stops.forEach(function(stop, index) { %>
+<<<<<<< HEAD
+        <div id="<%= stop.num %>" class="tour-player-container" style="z-index=1002; display: none;">
+=======
+        <div id="<%= stop.num-1 %>" class="tour-player-container" style="z-index=1002; display: none;">
+>>>>>>> 30623feb1a160ec6f9b1b16e10110de67a1c8be1
+            <div class="tour-player-inner clearfix">
+				<div class="preview">
+                    <a href="javascript:void(0);" class="question ir">更多信息</a>
+                    <div id="question-box" class="popup-box" style="display: none;">
+                        <div class="popup-content">
+                            <strong>手机应用</strong><br>
+                            此路线可以在手机上观看<br> 请下载<a href="http://103.31.20.60:3000/yuntour.apk">Android app</a>.
+                            <b></b>
+                        </div>
+                    </div>
+                </div> 
+				<div class="tour-images images-and-player">
+					<div class="tour-img-slider">
+							<div class="tour-img-slide-item" style="display: inline-block;">
+								<img src="<%= stop.stopThumbnail %>" style="width: 350px;">
+							</div>
+							<!--这个封面是显示的-->
+															<!--stopImages显示，也可以设timeout来实现img切换
+								  line.stop.stopImages.forEach(function(image, index) { %>
+								<img src="= image %>" style="width: 350px;">
+								}) %>-->	
+							<% stop.stopImages.forEach(function(image, index) { %>	
+							<div class="tour-img-slide-item" style="display: none;">
+						
+								<img src="<%= image %>" style="width: 350px;">
+							</div>
+							<% }) %>
+					</div>
+					<div class="tour-img-thumbs" style="display: block;">
+                        <a href="javascript:void(0);" class="tour-img-left ir">prev</a> 
+                        <a href="javascript:void(0);" class="tour-img-right ir">next</a>
+                        <div class="tour-img-more" style="margin-left: 105.5px;">
+                            <ul style="margin-left: 0px;">
+							<li><a href="" class=""><img src="" height="36px"></a></li>
+							<!--clone li here!!! class="tour-img-selected"-->
+							</ul>
+                        </div>
+                    </div>
+<<<<<<< HEAD
+                    <div id="jquery_jplayer_<%= stop.num %>" class="jp-jplayer"></div>
+                  	<div id="jp_container_<%= stop.num %>" class="jp-audio" style="width: 92%; margin: 10px 10px 10px 10px;">
+=======
+                    <div id="jquery_jplayer_1" class="jp-jplayer"></div>
+                  	<div id="jp_container_1" class="jp-audio" style="width: 92%; margin: 10px 10px 10px 10px;">
+>>>>>>> 30623feb1a160ec6f9b1b16e10110de67a1c8be1
+						<div class="jp-type-single">
+							<div class="jp-gui jp-interface" style="height: 90px;">
+								<ul class="jp-controls">
+									<li><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
+									<li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
+									<li><a href="javascript:;" class="jp-stop" tabindex="1">stop</a></li>
+								</ul>
+								<div class="jp-progress" style="width: 55%;">
+									<div class="jp-seek-bar">
+										<div class="jp-play-bar"></div>
+									</div>
+								</div>
+								<div class="jp-volume-bar" style="left: 380px;">
+									<div class="jp-volume-bar-value"></div>
+								</div>
+								<div class="jp-time-holder" style="width: 100%; left: 0px">
+									<div class="jp-current-time"></div>
+									<div class="jp-duration"></div>
+								</div>
+							</div>
+							<div class="jp-title">
+								<ul>
+									<li></li>
+								</ul>
+							</div>
+							<div class="jp-no-solution">
+								<span>Update Required</span>
+								To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+							</div>
+						</div>
+					</div>
+					<script type="text/javascript">
+<<<<<<< HEAD
+						var myPlayer = $("#jquery_jplayer_<%= stop.num %>").jPlayer({
+=======
+						var myPlayer = $("#jquery_jplayer_1").jPlayer({
+>>>>>>> 30623feb1a160ec6f9b1b16e10110de67a1c8be1
+							ready: function (event) {
+								$(this).jPlayer("setMedia", {
+									mp3: "<%= stop.stopAudio %>"
+								}).jPlayer();
+							},
+							swfPath: "javascripts",
+							supplied: "mp3",
+							preload: 'auto',
+<<<<<<< HEAD
+							wmode: "window",
+							cssSelectorAncestor: "#jp_container_<%= stop.num %>"
+						}).bind($.jPlayer.event.play, function(){
+							$(this).jPlayer("pauseOthers");
+=======
+							wmode: "window"
+>>>>>>> 30623feb1a160ec6f9b1b16e10110de67a1c8be1
+						});
+					</script>
+                </div>
+                <!-- end .tour-images //-->
+                
+                <div class="tour-description">
+                    <div class="tdesc-inside jspScrollable" style="overflow: hidden; padding: 0px; width: 427px;" tabindex="0">
+				    <span id="num" name="num" class="tdesc-num"><%= stop.num%></span>
+				    <h3 id="stopName" name="stopName"><%= stop.stopName%></h3>
+	                <div class="tdesc-long">
+						<p id="mapAddress" name="mapAddress" class="tdesc-add"><%= line.mapAddress %></p>
+						<p id="stopDes" name="stopDes" class="tdesc-full"><%= stop.stopDes %></p>
+                    </div>
+                    </div>
+                    <a href="javascript:void(0);" class="closetour ir">close tour</a>
+                </div>
+                <!-- end .tour-description //-->
+            </div>
+            <!-- end .tour-player-inner //-->
+	    </div>
+	    <% }) %>
+        <!-- end .tour-player-container //-->
+        
+        <input type="hidden" id="isCustom" value="False">
+        <input id="WithRoute" name="WithRoute" data-val="true" data-val-required="The WithRoute field is required." type="hidden" value="True">
+        
+       	<% line.stops.forEach(function(stop, index) { %> 
+        <div rel="<%= stop.num %>" class="tourslide tourbg-main">
+            <div class="tourslide-images" id="tour-slideshow">
+               	<div class="tourslide-link" >
+			    <img src="<%= stop.stopThumbnail %>" style="width: 350px; height: 350px">
+                <a href="javascript:void(0);" class="ts-show-container" >
+                    <span class="ts-show">Sample</span>
+                </a>
+                <span class="ts-title">
+					<span class="tt-count"><%= stop.num %></span><!--stop.num-->
+					<p class="tt-name"><%= stop.stopName %></p><!--title-->
+				</span>
+                </div>
+            </div>
+        </div>
+        <% }) %>
+		<!--删去了每个ｓｔｏｐ都foreach, detail.js里面改了-->
+
+        <!-- end .tourbg-main //-->
+    </div>
+    <!-- end #tour-main //-->
+	<script type="text/javascript">
+	var indexImg = 0;
+	function showSlide() {
+<<<<<<< HEAD
+		var nu = no+1
+		var howmany = $("#"+nu).find(".tour-img-slide-item").length;
+		$("#"+nu).find(".tour-img-slide-item").attr("style", "display:none;");
+		$("#"+nu).find(".tour-img-slide-item:eq("+ indexImg +")").attr("style", "display:inline-block;");
+		//console.log(howmany+indexImg);
+=======
+		var howmany = $("#"+no).find(".tour-img-slide-item").length;
+		$("#"+no).find(".tour-img-slide-item").attr("style", "display:none;");
+		$("#"+no).find(".tour-img-slide-item:eq("+ indexImg +")").attr("style", "display:inline-block;");
+		console.log(howmany+indexImg);
+>>>>>>> 30623feb1a160ec6f9b1b16e10110de67a1c8be1
+		indexImg++;
+		if(indexImg>=howmany) {indexImg=0;}		
+	}
+	var timer;
+	
+	$(document).ready(function(){
+		$(".tourslide-link").live("click",function() {
+	        return $(".ts-show-container .ts-show").is(":visible") && ($(".tour-player-container:eq("+no+")").slideDown(),
+	        timer=setInterval("showSlide()", 3000), 
+	        $(".tdesc-inside").jScrollPane(), 
+	        $(".tdesc-inside").data("jsp").scrollTo(0, 0), 
+	        $.fn.media.api.calculateMiniMargin("right")),
+	        !1
+	    }),
+	    $(".closetour").live("click",
+	    function() {
+	        return $(".tour-player-container").slideUp(),
+	        clearInterval(timer),
+	        myPlayer && myPlayer.jPlayer("stop"),
+	        !1
+	    })
+	});
+</script>
+	<div class="map">
+            <div id="map-canvas" style="width: 100%; height: 490px; position: relative; background-color: rgb(229, 227, 223); overflow: hidden; -webkit-transform: translateZ(0);">
+    </div></div>
+	<!-- end #map //-->
+<div id="tour-maininfo" class="clearfix">
+    <div id="tour-info">
+        <h4>站点 (<span><%= Object.keys(line.stops).length %></span>)</h4>
+        <div class="tour-thumbs-container clearfix thumbs-clipped thumbs-start">
+            <div id="tt-controls">
+                    <a href="javascript:void(0);" class="tt-prev ir tt-disabled">previous</a> 
+                    <% if(Object.keys(line.stops).length > 8) { %> 
+										<a href="javascript:void(0);" class="tt-next ir">next</a>
+										<% } else {%>
+                   	<a href="javascript:void(0);" class="tt-next ir tt-disabled">next</a>
+                    <% } %>
+            </div>
+            <div class="tour-thumbs" style="overflow: hidden;">
+                <ul style="margin-left: 0px;">
+                	<!--foreach-->
+                    
+	            <% line.stops.forEach(function(stop, index) { %>	
+                    <li>
+					    <a href="javascript:void(0);" rel="<%= stop.num%>" title="<%= stop.stopName %>" >
+						    <span><%= stop.num %></span>
+						    <img src="<%= stop.stopThumbnail %>" >
+	                    </a>
+                    </li>
+                    <% }) %>		
+                </ul>
+            </div>
+            <script type="text/javascript" >
+            	var no=<%= Object.keys(line.stops).length %>-1;
+            	$(document).ready(function(){
+            		$(".tour-thumbs ul li a").each(function(){
+            			$(this).bind("click", function(){
+            				no = $(this).find("span").html()-1;
+            				console.log(no);
+            				$(".tourslide").hide();
+            				$(".tourslide:eq(" + no + ")").show();
+            			// var img=$(this).find("img").attr("src");
+            			// var num=$(this).find("span").html();
+            			// var name=$(this).attr("oldtitle");
+            			// $(".tourslide-link img").attr("src", img);
+            			// $(".tt-count").html(num);
+            			// $(".tt-name").html(name);
+            		});
+            	});
+<<<<<<< HEAD
+							$(".tour-thumbs ul li a:first").trigger("click");
+=======
+>>>>>>> 30623feb1a160ec6f9b1b16e10110de67a1c8be1
+            });
+            </script>
+        </div>
+        <!-- end .tour-thumbs-container //-->
+        <p class="tour-maindesc">
+			<%= line.lineSummary %>
+        </p>        
+    </div>
+    <!-- end #tour-ratings //-->
+  <aside id="tour-aside">
+        <div class="tour-author">
+            <h5>作者简介</h5>
+            <div class="clearfix">
+                <div class="author-pic">
+                    <a href="">
+			    <img src=<%= line.authorImage %> width=100 height=100 alt="">
+                    </a>
+                </div>
+                <div class="author-name an-blue">
+                    <a href="">
+                        <span><%= line.author %></span><!--author-->
+                        <div style="color:#66aa9f">
+                            <%= line.authorType %>
+                    </a>
+                </div>
+            </div>
+            <div class="author-prez" style="padding-bottom: 30px">
+            <div class="summary">
+            <p><%= line.authorBio %></p></div></div>
+            
+        </div>
+        <!-- end .tour-author //-->
+
+    </aside>
+</div>
+
+
+
+</body>
+</html>

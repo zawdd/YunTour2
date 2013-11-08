@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" style="">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title><%= title %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-itunes-app" content="app-id=540673423">
+   	<link rel="icon" href="/ic_launcher.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/ic_launcher.png" type="image/x-icon"> 
+
+    <script src="./javascripts/jquery.min.js"></script>
+    <script type="text/javascript">
+        var ua = navigator.userAgent,
+            clickEvent = (ua.match(/iPad/i)) ? "touchstart" : "click",
+            baseUrl = '/';
+    </script>
+	<link href="/stylesheets/main-css.css" rel="stylesheet">
+    <link href="/stylesheets/tour-list.css" rel="stylesheet">
+	<script src="/javascripts/jquery.min.js"></script>
+	
+	<script src="/javascripts/jqueryui.js"></script>
+	<script src="/javascripts/jqueryval.js"></script>
+	<script src="/javascripts/modernizr.js"></script>
+    <script src="/javascripts/jquery.qtip.min.js"></script>
+	<script src="/javascripts/jquery.jplayer.min.js"></script>
+	<script src="/javascripts/jquery.expander.min.js"></script>
+    <script type="text/javascript" src="./javascripts/jquery.selectbox.min.js"></script>
+	<script src="/javascripts/libs.js"></script>
+	
+</head>
+<body itemscope="" itemtype="http://schema.org/Product" id="">
+<% include header %>
+    
+<div id="main-btours" role="main" class="clearfix">
+    <div class="latest-header" style="height: 70px;">
+        <p class="tours-found">
+	发现 <strong><%= Object.keys(lines).length %></strong> 个路线
+        </p>
+				<img src="/images/logo/logo.png" style="width: 250px; float: right;">
+    </div>
+    <!-- end .latest-header -->
+
+    <div id="AjaxGrid">
+	    <ul id="ltours-listed" class="clearfix">
+          <% lines.forEach(function(line, index) { %>  		    
+	<li><a href="/detail?lineid=<%= line._id %>">
+	    <span class="lt-place"><%= line.mapAddress %></span>
+            <span class="stars-mini"><span style="width: 64px;"></span></span>
+            <span class="lt-photo">
+                <span class="lt-photo-inside">
+			<!--<span style="background-image:url(); height: 320px; width: 428px;" class="bigrounded"></span>-->
+			<img src="<%= line.coverThumbnail %>" alt="" width="428" height="320">
+                </span>                
+
+            </span>
+	    <span class="lt-title"><%= line.lineName %></span>
+            <span class="lt-author-p">
+		    <!--<span style="background-image:url(); height: 60px; width: 60px;" class="smallrounded"></span>-->
+			    <img src="<%= line.authorImage %>" alt="" width="60" height="60">
+            </span>
+
+            <span class="lt-author-name">
+		    <%= line.author %>
+            </span><span class="lt-author-desc">
+	    	<%= line.authorBio %>
+            </span><span class="lt-language">
+	        <%= line.language %>
+            </span><span class="lt-pricing lt-free">
+	        <%= line.price %>
+            </span></a></li>
+            <!--clone li here-->
+	    <% }) %>	        
+		</ul>
+	<div class="lt-footer">
+	    <p class="tours-found">
+	        发现 <strong><%= Object.keys(lines).length %></strong> 个线路
+	    </p>
+	    <!--<ul><li class="ltf-prev">
+	    	<a class="ltf-disabled">
+	    		<img src="./images/ltf-prev.png"></a></li>
+	    	<li><a class="ltf-disabled page-link" data-page="0">1</a></li>
+				<li><a class="page-link" data-page="1" href="?page=2">2</a></li>
+	    	<li>...</li>
+		<li class="ltf-next"><a href="?page=<%= page+1 %>">
+		<img src="./images/ltf-next.png"></a></li>
+	    </ul>-->
+	</div>
+	</div>
+    
+</div>
+<!--! end #main -->
+
+	
+</body></html>
+

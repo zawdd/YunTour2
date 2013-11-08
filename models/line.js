@@ -1,0 +1,381 @@
+var mongodb = require('./db');
+var ObjectId = require('mongodb').ObjectID
+
+function Line(line) {
+  this.lineName = line.lineName;
+  this.coverThumbnail = line.coverThumbnail;
+  this.lineSummary = line.lineSummary;
+  this.stops = line.stops;
+  this.baseDir = line.baseDir;
+  this.mapType = line.mapType;
+  this.mapAddress = line.mapAddress;
+  this.locate = line.locate;
+  this.language = line.language;
+  this.lineLength = line.lineLength;
+  this.duration = line.duration;
+  this.topics = line.topics;
+  this.price = line.price;
+  this.author = line.author;
+  this.authorImage = line.authorImage;
+  this.authorEmail = line.authorEmail;
+  this.authorBio = line.authorBio;
+  this.authorType = line.authorType;
+  this.keyWords = line.keyWords;
+  this.traffics = line.traffics;
+  this.cautions = line.cautions;
+  this.lineLinks = line.lineLinks;
+  this.lineVedios = line.lineVedios;
+  this.totalScore = line.totalScore;
+  this.totalPeople = line.totalPeople;
+  this.createDate = line.createDate;
+};
+
+function Stop(stop) {
+  this.num = stop.num;
+//  this.lineId = stop.lineId;
+  this.stopName = stop.stopName;
+  this.stopDes = stop.stopDes;
+  this.locate = stop.locate;
+  this.stopThumbnail = stop.stopThumbnail;
+  this.stopImages = stop.stopImages;
+  this.stopAudio = stop.stopAudio;
+  this.imageOrder = stop.imageOrder;
+  this.createDate = stop.createDate;
+};
+
+module.exports = Line;
+
+//创建路线
+Line.prototype.create = function create(callback) {
+  var line = {
+    lineName : this.lineName,
+    coverThumbnail : this.coverThumbnail,
+    lineSummary : this.lineSummary,
+    stops : this.stops,
+    baseDir : this.baseDir,
+    mapType : this.mapType,
+    mapAddress : this.mapAddress,
+    locate : this.locate,
+    language : this.language,
+    lineLength : this.lineLength,
+    duration : this.duration,
+    topics : this.topics,
+    price : this.price,
+    author : this.author,
+    authorImage : this.authorImage,
+    authorEmail : this.authorEmail,
+    authorBio : this.authorBio,
+    authorType : this.authorType,
+    keyWords : this.keyWords,
+    traffics : this.traffics,
+    cautions : this.cautions,
+    lineLinks : this.lineLinks,
+    lineVedios : this.lineVedios,
+    totalScore : this.totalScore,
+    totalPeople : this.totalPeople,
+    createDate : this.createDate,    
+  };
+
+  mongodb.open(function(err, db){
+    if (err) {
+      return callback(err);
+    }
+
+    db.collection('line', function(err, collection) {
+      if (err) {
+	mongodb.close();
+	return callback(err);
+      }
+      collection.insert(line, {safe : true}, function(err) {
+	//根据ID创建存放路线的目录
+	collection.update({_id : line._id}, 
+	                  {$set : {baseDir : line._id.toString()}}, 
+	                  {safe : true}, function(err, li){
+          //console.log("222"+line._id);
+          mongodb.close();
+	  mongodb.open(function(err, db){
+            db.collection('user', function(err, collection){
+	      console.log('line:' + line.author);
+	      collection.update({userEmail : line.authorEmail},
+		                {$push : {tourCreate : line._id}},
+				{safe : true},
+				function(err, lin){
+				
+                mongodb.close();		
+		callback(err, line);
+	      });
+	    });
+	  });
+	});
+
+      });
+    });
+  });
+};
+
+//根据路线ID,查找线路全部信息
+Line.get = function get(lineid, callback){
+  mongodb.open(function(err, db){
+    if (err) {
+      return callback(err);
+    }
+
+    db.collection('line', function(err, collection){
+      if (err) {
+	mongodb.close();
+	return callback(err);
+      }
+
+      collection.findOne({_id : new ObjectId(lineid)}, function(err, doc){
+        mongodb.close();
+	if (doc) {
+	  var line = new Line(doc);
+	  callback(err, line);
+	} else {
+	  callback(err, null);
+	}
+      });
+    });
+  });
+};
+//根据路线ID,删除路线
+Line.remove = function remove(lineid, callback){
+  mongodb.open(function(err, db){
+    if (err) {
+      return callback(err);
+    }
+    db.collection('line', function(err, collection){
+      if (err) {
+	mongodb.close();
+	return callback(err);
+      }
+      collection.remove({_id : new ObjectId(lineid)}, function(err, doc){
+        mongodb.close();
+	if (doc) {;
+	  callback(err, doc);
+	} else {
+	  callback(err, null);
+	}
+      });
+    });
+  });
+};
+
+//根据路线ID,插入站点信息
+Line.insertStop = function insertStop(lineid, stop, callback){
+  mongodb.open(function(err, db){
+    if (err) {
+      callback(err);
+    }
+    db.collection('line', function(err, collection){
+      if(err){
+	mongodb.close();
+	return callback(err);
+      }
+      collection.update({_id : new ObjectId(lineid)},
+	                {$push : {stops : stop}},
+			{safe : true},
+			function(err, doc){
+	mongodb.close();
+        callback(err, doc);	
+      });
+    });
+  });
+};
+//根据lineid 更新line的信息，比如
+//根据地图标注更新线路中所有的坐标信息
+Line.update = function update(lineid, line, callback){
+  mongodb.open(function(err, db){
+    if(err) {
+      callback(err);
+    }
+    db.collection('line', function(err, collection){
+      if(err) {
+	mongodb.close();
+	return callback(err);
+      }
+      collection.update({_id : new ObjectId(lineid)},
+	                 line, {safe : true},
+			 function(err, doc){
+	mongodb.close();
+        callback(err, doc);
+      });
+    });
+  });
+};
+//Android
+//根据时间顺序返回beg到end数目的路线
+Line.findAllByTime = function findAllByTime(beg, end, callback){
+  mongodb.open(function(err, db){
+    if (err) {
+      return callback(err);
+    }
+    db.collection('line', function(err, collection){
+      if (err) {
+	mongodb.close();
+	return callback(err);
+      }
+      collection.find().limit(end-beg).skip(beg).sort({createDate : -1}).toArray(function(err, docs){
+        mongodb.close();
+	if (err) {
+	  callback(err, null);
+	}
+        var lines = [];
+	docs.forEach(function(doc, index){
+	  console.log(doc._id.toString());
+	  lines.push(doc);
+	});
+	callback(null, lines);
+
+      });
+    });
+  });
+};
+//按照某条件获得全部满足条件的路线
+//如:位置，主题
+Line.findByTopics = function findByTopics (key, beg, end, callback){
+ mongodb.open(function(err, db){
+    if (err) {
+      return callback(err);
+    }
+
+    db.collection('line', function(err, collection){
+      if (err) {
+	mongodb.close();
+	return callback(err);
+      }
+
+      collection.find({topics : key}).limit(end-beg).skip(beg).sort({createDate : -1}).toArray(function(err, docs){
+        mongodb.close();
+	if (err) {
+	  callback(err, null);
+	}
+        var lines = [];
+	docs.forEach(function(doc, index){
+	  console.log(doc._id.toString());
+	  //var line = new Line(doc);
+	  //lines.push(line);
+	  lines.push(doc);//这里把每个图片的id也返回，用于接下来查找这一id对应的路径
+	});
+	callback(null, lines);
+
+      });
+    });
+  });
+};
+//根据位置返回beg到end的路线
+Line.findByLocation = function findByLocation (key, beg, end,callback){
+ mongodb.open(function(err, db){
+    if (err) {
+      return callback(err);
+    }
+    db.collection('line', function(err, collection){
+      if (err) {
+	mongodb.close();
+	return callback(err);
+      }
+      collection.ensureIndex({locate : "2d"});
+      collection.find({locate : {$near : key}}).limit(end-beg).skip(beg).sort({createDate : -1}).toArray(function(err, docs){
+        mongodb.close();
+	if (err) {
+	  callback(err, null);
+	}
+        var lines = [];
+	docs.forEach(function(doc, index){
+	  console.log(doc._id.toString());
+	  lines.push(doc);//这里把每个图片的id也返回，用于接下来查找这一id对应的路径
+	});
+	callback(null, lines);
+
+      });
+    });
+  });
+};
+
+//根据用户的Email显示所有该用户创建的线路
+Line.findByEmail = function findByEmail (key, callback){
+ mongodb.open(function(err, db){
+    if (err) {
+      return callback(err);
+    }
+
+    db.collection('line', function(err, collection){
+      if (err) {
+	mongodb.close();
+	return callback(err);
+      }
+
+      collection.find({authorEmail : key}).sort({createDate : -1}).toArray(function(err, docs){
+        mongodb.close();
+	if (err) {
+	  callback(err, null);
+	}
+        var lines = [];
+	docs.forEach(function(doc, index){
+	  console.log(doc._id.toString());
+	  lines.push(doc);//这里把每个图片的id也返回，用于接下来查找这一id对应的路径
+	});
+	callback(null, lines);
+
+      });
+    });
+  });
+};
+//根据mapAddress 返回列表
+Line.findByAddress = function findByAddress (key, beg, end, callback){
+ mongodb.open(function(err, db){
+    if (err) {
+      return callback(err);
+    }
+
+    db.collection('line', function(err, collection){
+      if (err) {
+	mongodb.close();
+	return callback(err);
+      }
+
+      collection.find({mapAddress : key}).limit(end-beg).skip(beg).sort({createDate : -1}).toArray(function(err, docs){
+        mongodb.close();
+	if (err) {
+	  callback(err, null);
+	}
+        var lines = [];
+	docs.forEach(function(doc, index){
+	  console.log(doc._id.toString());
+	  lines.push(doc);
+	});
+	callback(null, lines);
+
+      });
+    });
+  });
+};
+//根据mapAddress和topic 返回列表
+Line.findByAddressTopic = function findByAddressTopic (address, topic, beg, end, callback){
+ mongodb.open(function(err, db){
+    if (err) {
+      return callback(err);
+    }
+
+    db.collection('line', function(err, collection){
+      if (err) {
+	mongodb.close();
+	return callback(err);
+      }
+
+      collection.find({mapAddress : address, topics : topic}).limit(end-beg).skip(beg).sort({createDate : -1}).toArray(function(err, docs){
+        mongodb.close();
+	if (err) {
+	  callback(err, null);
+	}
+        var lines = [];
+	docs.forEach(function(doc, index){
+	  console.log(doc._id.toString());
+	  lines.push(doc);
+	});
+	callback(null, lines);
+
+      });
+    });
+  });
+};

@@ -1,0 +1,1393 @@
+========================================================================================
+=  Please ensure that you set the default write concern for the database by setting    =
+=   one of the options                                                                 =
+=                                                                                      =
+=     w: (value of > -1 or the string 'majority'), where < 1 means                     =
+=        no write acknowlegement                                                       =
+=     journal: true/false, wait for flush to journal before acknowlegement             =
+=     fsync: true/false, wait for flush to file system before acknowlegement           =
+=                                                                                      =
+=  For backward compatibility safe is still supported and                              =
+=   allows values of [true | false | {j:true} | {w:n, wtimeout:n} | {fsync:true}]      =
+=   the default value is false which means the driver receives does not                =
+=   return the information of the success/error of the insert/update/remove            =
+=                                                                                      =
+=   ex: new Db(new Server('localhost', 27017), {safe:false})                           =
+=                                                                                      =
+=   http://www.mongodb.org/display/DOCS/getLastError+Command                           =
+=                                                                                      =
+=  The default of no acknowlegement will change in the very near future                =
+=                                                                                      =
+=  This message will disappear when the default safe is set on the driver Db           =
+========================================================================================
+Express server listening on port 3000
+[90mGET / [36m304 [90m29ms[0m
+[90mGET /stylesheets/bootstrap-responsive.css [36m304 [90m9ms[0m
+[90mGET /stylesheets/bootstrap.css [36m304 [90m9ms[0m
+[90mGET /javascripts/jquery.min.js [36m304 [90m4ms[0m
+[90mGET /stylesheets/main-css.css [36m304 [90m3ms[0m
+[90mGET /javascripts/libs.js [36m304 [90m4ms[0m
+[90mGET /javascripts/bootstrap.js [36m304 [90m4ms[0m
+[90mGET /images/logo/logo1.png [36m304 [90m2ms[0m
+[90mGET /images/logo/logo3.png [36m304 [90m1ms[0m
+[90mGET /images/1.jpg [36m304 [90m1ms[0m
+[90mGET /images/2.jpg [36m304 [90m1ms[0m
+[90mGET /images/3.jpg [36m304 [90m1ms[0m
+[90mGET /images/create-tours.png [36m304 [90m1ms[0m
+[90mGET /images/experience-tours.png [36m304 [90m6ms[0m
+[90mGET /images/bg.jpg [36m304 [90m2ms[0m
+[90mGET /images/create-bg.jpg [33m404 [90m4ms[0m
+[90mGET /images/experience-bg.jpg [33m404 [90m3ms[0m
+[90mGET /ic_launcher.png [36m304 [90m1ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browsebylocation?x=23.059206&y=113.392289&beg=0&end=15 [32m200 [90m46ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m15ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m14ms[0m
+[90mGET /tmp/20f68ac6a25f1ea58f6aa2f5e70a6e49.jpg [32m200 [90m6ms - 43.29kb[0m
+[90mGET /tmp/20f68ac6a25f1ea58f6aa2f5e70a6e49.jpg [32m200 [90m8ms - 43.29kb[0m
+[90mGET /tmp/4bee7116aa85fffe0f7df2c5efa94438.groupinfo.w600.jpg [32m200 [90m22ms - 92.54kb[0m
+[90mGET /tmp/0566b4047fc09d00c0e208242072c2dd.groupinfo.w600.jpg [32m200 [90m18ms - 81.18kb[0m
+[90mGET /tmp/4bee7116aa85fffe0f7df2c5efa94438.groupinfo.w600.jpg [32m200 [90m19ms - 92.54kb[0m
+[90mGET /tmp/8a83e18d99809d81c1cd300ca4c24cab.groupinfo.w600.jpg [32m200 [90m4ms - 95.62kb[0m
+[90mGET /tmp/78600378f4db4fefa9c4226ac32416ae.jpg [32m200 [90m4ms - 59.66kb[0m
+[90mGET /tmp/0ec22c85dc352f72303d33c73f6a8bd0.groupinfo.w600.jpg [32m200 [90m4ms - 114.01kb[0m
+[90mGET /tmp/2e5ffdfbcd28b753d71d1c6fc3024b8e.groupinfo.w600.jpg [32m200 [90m3ms - 145.27kb[0m
+[90mGET /tmp/1fe84c9364b56c08483b37cab5a74823.jpg [32m200 [90m4ms - 133.16kb[0m
+[90mGET /tmp/04aa4473264964b9a3f459244a38da80.groupinfo.w600.jpg [32m200 [90m7ms - 154.57kb[0m
+[90mGET /tmp/d903e634e50d6c5eb655d61387c9285c.mp3 [32m200 [90m1957ms - 2.44mb[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m21ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m20ms[0m
+[90mGET /tmp/14f86e9a6ed8d917f47788b25eb31d54.mp3 [32m200 [90m129ms - 494.21kb[0m
+[90mGET /tmp/206e5b69477df938047957505cab2902.jpg [32m200 [90m7ms - 127.1kb[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m11ms[0m
+[90mGET /tmp/1b76ab6a316c494afc72dd96975c90ab.groupinfo.w600.jpg [32m200 [90m3ms - 78.89kb[0m
+[90mGET /tmp/2a1bd5766dd203e2eb87d20f18d52064.groupinfo.w600.jpg [32m200 [90m13ms - 118.14kb[0m
+[90mGET /tmp/da40eeaffaf2bf4e5b693fd308efd3a7.groupinfo.w600.jpg [32m200 [90m2ms - 102.37kb[0m
+[90mGET /tmp/0e1baa076f4089824ae308ab2405a79c.mp3 [32m200 [90m67ms - 341.35kb[0m
+[90mGET /tmp/e33f4d9a647cbb6b758f0ac498cf8ddc.groupinfo.w600.jpg [32m200 [90m2ms - 125.75kb[0m
+[90mGET /tmp/f75d393e15776f9d5b168aa69e3cde3b.groupinfo.w600.jpg [32m200 [90m2ms - 141kb[0m
+[90mGET /tmp/6d05d037d48218107f7d0d99f73206d3.groupinfo.w600.jpg [32m200 [90m2ms - 64.46kb[0m
+[90mGET /tmp/88da0614302c8a4b1884dbc6ea9734bd.groupinfo.w600.jpg [32m200 [90m3ms - 64.03kb[0m
+[90mGET /tmp/13d2cde470885af17308757da8434e1d.groupinfo.w600.jpg [32m200 [90m3ms - 102.38kb[0m
+[90mGET /tmp/1384371283ca1dcac0d3d5e5e07d39dd.groupinfo.w600.jpg [32m200 [90m2ms - 73.05kb[0m
+[90mGET /tmp/ccb2d68891b576cefb618cdc0b278624.mp3 [32m200 [90m239ms - 1004.93kb[0m
+[90mGET /tmp/62e1535eab4322bd9dce883671012269.groupinfo.w600.jpg [32m200 [90m3ms - 82.91kb[0m
+[90mGET /tmp/ac3c0216375cc4fc3348d47c87d0c321.groupinfo.w600.jpg [32m200 [90m3ms - 83.66kb[0m
+[90mGET /tmp/1af9701f8f6d58d1522dcd028825984c.groupinfo.w600.jpg [32m200 [90m2ms - 82.36kb[0m
+[90mGET /tmp/ee27ff30351c2a9db1e0c50d56dd5237.groupinfo.w600.jpg [32m200 [90m2ms - 76.65kb[0m
+[90mGET /tmp/de76c6b5f4866f171b9e40799b61fa58.groupinfo.w600.jpg [32m200 [90m2ms - 108.23kb[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m11ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m12ms[0m
+[90mGET / [36m304 [90m9ms[0m
+[90mGET /stylesheets/bootstrap.css [36m304 [90m1ms[0m
+[90mGET /stylesheets/bootstrap-responsive.css [36m304 [90m1ms[0m
+[90mGET /stylesheets/main-css.css [36m304 [90m9ms[0m
+[90mGET /javascripts/jquery.min.js [36m304 [90m1ms[0m
+[90mGET /javascripts/libs.js [36m304 [90m2ms[0m
+[90mGET /javascripts/bootstrap.js [36m304 [90m2ms[0m
+[90mGET /images/logo/logo1.png [36m304 [90m2ms[0m
+[90mGET /images/logo/logo3.png [36m304 [90m1ms[0m
+[90mGET /images/1.jpg [36m304 [90m2ms[0m
+[90mGET /images/2.jpg [36m304 [90m1ms[0m
+[90mGET /images/3.jpg [36m304 [90m1ms[0m
+[90mGET /images/create-tours.png [36m304 [90m3ms[0m
+[90mGET /images/experience-tours.png [36m304 [90m2ms[0m
+[90mGET /images/create-bg.jpg [33m404 [90m3ms[0m
+[90mGET /images/experience-bg.jpg [33m404 [90m1ms[0m
+[90mGET /images/bg.jpg [36m304 [90m2ms[0m
+[90mGET /ic_launcher.png [36m304 [90m2ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browse [36m304 [90m18ms[0m
+[90mGET /javascripts/jquery.min.js [36m304 [90m2ms[0m
+[90mGET /stylesheets/main-css.css [36m304 [90m2ms[0m
+[90mGET /stylesheets/tour-list.css [36m304 [90m2ms[0m
+[90mGET /javascripts/jqueryui.js [36m304 [90m3ms[0m
+[90mGET /javascripts/jqueryval.js [36m304 [90m2ms[0m
+[90mGET /javascripts/modernizr.js [36m304 [90m1ms[0m
+[90mGET /javascripts/jquery.qtip.min.js [36m304 [90m1ms[0m
+[90mGET /javascripts/jquery.jplayer.min.js [36m304 [90m6ms[0m
+[90mGET /javascripts/jquery.expander.min.js [36m304 [90m5ms[0m
+[90mGET /javascripts/jquery.selectbox.min.js [36m304 [90m5ms[0m
+[90mGET /javascripts/libs.js [36m304 [90m2ms[0m
+[90mGET /images/bg.jpg [36m304 [90m1ms[0m
+[90mGET /images/logo/logo1.png [36m304 [90m3ms[0m
+[90mGET /images/logo/logo3.png [36m304 [90m1ms[0m
+[90mGET /images/logo/logo.png [36m304 [90m1ms[0m
+[90mGET /tmp/ea989848e153bf031491af38e12e49cd.jpg [36m304 [90m2ms[0m
+[90mGET /tmp/d9abefa13acdcb9e044d111bdbd67d50.jpg [36m304 [90m1ms[0m
+[90mGET /tmp/5e76b8c34772a7ccfa59df0a4db8242f.jpg [36m304 [90m1ms[0m
+[90mGET /tmp/5c4754c2fc9e1f4ee1f0612d59342a77.jpg [36m304 [90m1ms[0m
+[90mGET /tmp/0fd32866b4d149637a8a548b75381e6d.groupinfo.w600.jpg [36m304 [90m0ms[0m
+[90mGET /tmp/eac424c46a4fb0d0449c94134306e333.jpg [36m304 [90m2ms[0m
+[90mGET /tmp/2c7a7251f5c5080dd4672fa62b642b0f.jpg [36m304 [90m6ms[0m
+[90mGET /tmp/b5a13c08176ff2ef16aca646e3eb52cd.jpg [36m304 [90m7ms[0m
+[90mGET /images/main-btours.png [33m404 [90m2ms[0m
+[90mGET /images/star-mini.png [36m304 [90m2ms[0m
+[90mGET /images/language.png [36m304 [90m1ms[0m
+[90mGET /images/free-bg.png [36m304 [90m2ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m14ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m11ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browsebylocation?x=23.059206&y=113.392289&beg=0&end=15 [32m200 [90m13ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m19ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m14ms[0m
+[90mGET /tmp/a0988859cf5453691ae0a63cc32ef896.groupinfo.w600.jpg [32m200 [90m4ms - 77.89kb[0m
+[90mGET /tmp/9f78c82438885fb2e5bdfff6cea74e8d.groupinfo.w600.jpg [32m200 [90m14ms - 68.81kb[0m
+[90mGET /tmp/a0988859cf5453691ae0a63cc32ef896.groupinfo.w600.jpg [32m200 [90m12ms - 77.89kb[0m
+[90mGET /tmp/9f78c82438885fb2e5bdfff6cea74e8d.groupinfo.w600.jpg [32m200 [90m9ms - 68.81kb[0m
+[90mGET /tmp/0c19cbe8ef04a413c74cd7092f5cdf4d.jpg [32m200 [90m16ms - 79.4kb[0m
+[90mGET /tmp/0c19cbe8ef04a413c74cd7092f5cdf4d.jpg [32m200 [90m3ms - 79.4kb[0m
+[90mGET /tmp/80e0b2be5a998a1ee580aedfb2aab57f.groupinfo.w600.jpg [32m200 [90m2ms - 121.1kb[0m
+[90mGET /tmp/f1c154cc8909ebd452f120a2fbd0e1e3.groupinfo.w600.jpg [32m200 [90m3ms - 94.33kb[0m
+[90mGET /tmp/6591b4b5ee3abf83ea368cf140fdf0f8.mp3 [32m200 [90m1241ms - 2.06mb[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m24ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m24ms[0m
+[90mGET /tmp/0361f81947f7f68a0c523b7cb03016bd.jpg [32m200 [90m2ms - 32.52kb[0m
+[90mGET /tmp/a938fc70adb6238f2d4d617bb66f7e61.jpg [32m200 [90m16ms - 74.06kb[0m
+[90mGET /tmp/c5a9b089ad671140dcbc26015b6480ea.mp3 [32m200 [90m172ms - 749.72kb[0m
+[90mGET /tmp/342b7fe4caecbbf88f4b128414e3b0d0.jpg [32m200 [90m2ms - 110.87kb[0m
+[90mGET /tmp/a28d52f6dd2d62715a28bca4d92ffe3b.jpg [32m200 [90m2ms - 69.2kb[0m
+[90mGET /tmp/82e14beb95ee02c10ae1870f7d89a4ce.jpg [32m200 [90m2ms - 125.5kb[0m
+[90mGET /tmp/2bbad8c97ea23a6e7b17c86486e7a408.groupinfo.w600.jpg [32m200 [90m2ms - 116.77kb[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m10ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m13ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m10ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m9ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m10ms[0m
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browsebyaddress?address=%E5%B9%BF%E5%B7%9E&beg=0&end=25 [32m200 [90m13ms[0m
+[90mGET /browsebyaddresstopic?address=%E5%B9%BF%E5%B7%9E&topic=%E5%8E%86%E5%8F%B2&beg=0&end=25 [32m200 [90m8ms[0m
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browsebyaddresstopic?address=%E5%B9%BF%E5%B7%9E&topic=%E8%89%BA%E6%9C%AF&beg=0&end=25 [32m200 [90m8ms[0m
+519373c0d3f59a40a9000004
+[90mGET /browsebyaddresstopic?address=%E5%B9%BF%E5%B7%9E&topic=%E6%97%B6%E5%B0%9A&beg=0&end=25 [32m200 [90m5ms[0m
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+[90mGET /browsebyaddresstopic?address=%E5%B9%BF%E5%B7%9E&topic=%E4%BD%93%E8%82%B2&beg=0&end=25 [32m200 [90m10ms[0m
+[90mGET /browsebyaddresstopic?address=%E5%B9%BF%E5%B7%9E&topic=%E5%AE%B6%E5%BA%AD&beg=0&end=25 [32m200 [90m4ms[0m
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browsebyaddress?address=%E5%B9%BF%E5%B7%9E&beg=0&end=25 [32m200 [90m8ms[0m
+5193a245d3f59a40a9000006
+[90mGET /browsebyaddress?address=%E9%A6%99%E6%B8%AF&beg=0&end=25 [32m200 [90m5ms[0m
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browsebyaddress?address=%E5%B9%BF%E5%B7%9E&beg=0&end=25 [32m200 [90m9ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m10ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m10ms[0m
+[90mGET /tmp/af2c11ccf2921622aca0bfd8cb49a0a6.groupinfo.w600.jpg [32m200 [90m24ms - 109.47kb[0m
+[90mGET /tmp/aaf3df49b72a5ef1bcac363a0508043b.jpg [32m200 [90m496ms - 463.75kb[0m
+[90mGET /tmp/0336eadaddc0e24781aeb7c977a52c2c.mp3 [32m200 [90m616ms - 1.89mb[0m
+[90mGET /tmp/f50edd3ff88a67b95ab29a6e181ae69b.groupinfo.w600.jpg [32m200 [90m2ms - 106.88kb[0m
+[90mGET /tmp/c31ae7381344eddab72a9c43390b7dda.groupinfo.w600.jpg [32m200 [90m2ms - 107.53kb[0m
+[90mGET /tmp/d903e634e50d6c5eb655d61387c9285c.mp3 [32m200 [90m762ms - 2.44mb[0m
+[90mGET /tmp/05604415847c62b0dc6a12f3d7caa357.groupinfo.w600.jpg [32m200 [90m3ms - 114.15kb[0m
+[90mGET /tmp/3890c8f1aa03c7cc77e75c4cfaae2c4c.groupinfo.w600.jpg [32m200 [90m3ms - 101.05kb[0m
+[90mGET /tmp/ebd8c1cebe0c1a8d7f03eb0ea7829fa9.groupinfo.w600.jpg [32m200 [90m5ms - 91.23kb[0m
+[90mGET /tmp/5ef8339b402523447a55468c843ab8d6.jpg [32m200 [90m3ms - 65.39kb[0m
+[90mGET /tmp/422827b1b577bbb5e92efed0dde70d5b.jpg [32m200 [90m2ms - 54.29kb[0m
+[90mGET /tmp/01f6454ea7d343a24cf663e9bde48372.mp3 [32m200 [90m1033ms - 1.77mb[0m
+[90mGET /tmp/07be6ed4c38cfd676e53d0f10f68c5b0.jpg [32m200 [90m3ms - 42.92kb[0m
+[90mGET /tmp/da8e4939fb751b5d98f58d9134a980c0.groupinfo.w600.jpg [32m200 [90m3ms - 92.65kb[0m
+[90mGET /tmp/7efef036540923a9aff0169c406ca729.groupinfo.w600.jpg [32m200 [90m4ms - 79.5kb[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m13ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m14ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m23ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m12ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m10ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m10ms[0m
+[90mGET /tmp/cafe2d8d15505c46397cd1b85cffa4b0.jpg [32m200 [90m3ms - 177.19kb[0m
+[90mGET /tmp/cafe2d8d15505c46397cd1b85cffa4b0.jpg [32m200 [90m2ms - 177.19kb[0m
+[90mGET /tmp/144bf1a9fec85bfec874ea175c38bf71.jpg [32m200 [90m183ms - 388.16kb[0m
+[90mGET /tmp/592a89097dd6ce6da93749e72a918f0a.jpg [32m200 [90m631ms - 592.44kb[0m
+[90mGET /tmp/592a89097dd6ce6da93749e72a918f0a.jpg [32m200 [90m673ms - 592.44kb[0m
+[90mGET /tmp/592a89097dd6ce6da93749e72a918f0a.jpg [32m200 [90m586ms - 592.44kb[0m
+[90mGET /tmp/f6ec3bd1011ffd31d2367b4de07d8642.jpg [32m200 [90m148ms - 320.06kb[0m
+[90mGET /tmp/56dc7425184aabf12757629e533112a5.jpg [32m200 [90m93ms - 194.06kb[0m
+[90mGET /tmp/a975c14d6f7d65b7d2e60b6ae71c9e76.jpg [32m200 [90m5ms - 122.46kb[0m
+[90mGET /tmp/1c32b9b7a10a16b819e0c3a9865184c9.jpg [32m200 [90m5ms - 235.17kb[0m
+[90mGET /tmp/d4bb9e38b573a44d07794007f9ac3728.jpg [32m200 [90m2ms - 89.52kb[0m
+[90mGET /tmp/20f3423c3143d15bd0c3ba1f9d1eb53c.mp3 [32m200 [90m325ms - 1.35mb[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m11ms[0m
+[90mGET /tmp/14f86e9a6ed8d917f47788b25eb31d54.mp3 [32m200 [90m93ms - 494.21kb[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m13ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m26ms[0m
+[90mGET /tmp/ea989848e153bf031491af38e12e49cd.jpg [32m200 [90m29ms - 233.55kb[0m
+[90mGET /tmp/5e76b8c34772a7ccfa59df0a4db8242f.jpg [32m200 [90m6ms - 41.36kb[0m
+[90mGET /tmp/0fd32866b4d149637a8a548b75381e6d.groupinfo.w600.jpg [32m200 [90m22ms - 101.05kb[0m
+[90mGET /tmp/eac424c46a4fb0d0449c94134306e333.jpg [32m200 [90m41ms - 174.99kb[0m
+[90mGET /tmp/b5a13c08176ff2ef16aca646e3eb52cd.jpg [32m200 [90m4ms - 69.82kb[0m
+[90mGET /tmp/2c7a7251f5c5080dd4672fa62b642b0f.jpg [32m200 [90m3ms - 149.38kb[0m
+[90mGET /tmp/d9abefa13acdcb9e044d111bdbd67d50.jpg [32m200 [90m2ms - 22.42kb[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m11ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m23ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m12ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m27ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browsebylocation?x=23.060731&y=113.392164&beg=0&end=15 [32m200 [90m10ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m9ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m11ms[0m
+[90mGET /browsebyaddress?address=%E5%8F%B0%E6%B9%BE&beg=0&end=25 [32m200 [90m4ms[0m
+5193a245d3f59a40a9000006
+[90mGET /browsebyaddress?address=%E9%A6%99%E6%B8%AF&beg=0&end=25 [32m200 [90m5ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m9ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m10ms[0m
+[90mGET /browsebytopic?topic=%E5%8E%86%E5%8F%B2&beg=0&end=25 [32m200 [90m6ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m11ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m10ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m10ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m14ms[0m
+[90mGET /tmp/d23efb85a8297dc4439c6c7275b22cd4.jpg [32m200 [90m2ms - 77.92kb[0m
+[90mGET /tmp/b5dc5f38e6c94e095efe80367c8894be.jpg [32m200 [90m35ms - 134.38kb[0m
+[90mGET /tmp/226883dbdafe7eae5074bef590fdcd49.jpg [32m200 [90m2ms - 123.58kb[0m
+[90mGET /tmp/27c08c3daf1d663d2c0f7a4ac353283e.jpg [32m200 [90m146ms - 333.28kb[0m
+[90mGET /tmp/b5dc5f38e6c94e095efe80367c8894be.jpg [32m200 [90m101ms - 134.38kb[0m
+[90mGET /tmp/b5ef8370f68f98aeb74c861f7d27de37.jpg [32m200 [90m1ms - 124.39kb[0m
+[90mGET /tmp/29a2f115a473a19e789c95448acd04a6.jpg [32m200 [90m115ms - 334.37kb[0m
+[90mGET /tmp/a2150a90fc34b702725f0b2fc51dd5db.mp3 [32m200 [90m459ms - 674.73kb[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m10ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m12ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m9ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m10ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m17ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m13ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m13ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m14ms[0m
+51939ee8d3f59a40a9000005
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browsebytopic?topic=%E8%89%BA%E6%9C%AF&beg=0&end=25 [32m200 [90m10ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browsebylocation?x=23.059691&y=113.391207&beg=0&end=15 [32m200 [90m14ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m13ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browsebylocation?x=23.059691&y=113.391207&beg=0&end=15 [32m200 [90m18ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m11ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m12ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m10ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m10ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m10ms[0m
+[90mGET /tmp/771e4af2672206324c0bd9390ba12f73.jpg [32m200 [90m3ms - 193.83kb[0m
+[90mGET /tmp/d0939fe528f7d87b1c3fb09effbdd538.jpg [32m200 [90m24ms - 130.49kb[0m
+[90mGET /tmp/add52fcdc9685567f6b253a514747ee0.jpg [32m200 [90m59ms - 195.61kb[0m
+[90mGET /tmp/14f86e9a6ed8d917f47788b25eb31d54.mp3 [32m206 [90m43ms - 256.13kb[0m
+[90mGET /tmp/14f86e9a6ed8d917f47788b25eb31d54.mp3 [32m200 [90m118ms - 494.21kb[0m
+[90mGET /tmp/c008c251474987d6101d8f34409be36e.jpg [32m200 [90m38ms - 325.39kb[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m11ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m23ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m10ms[0m
+[90mGET /tmp/ea989848e153bf031491af38e12e49cd.jpg [32m200 [90m104ms - 233.55kb[0m
+[90mGET /tmp/5e76b8c34772a7ccfa59df0a4db8242f.jpg [32m200 [90m2ms - 41.36kb[0m
+[90mGET /tmp/0fd32866b4d149637a8a548b75381e6d.groupinfo.w600.jpg [32m200 [90m113ms - 101.05kb[0m
+[90mGET /tmp/5e76b8c34772a7ccfa59df0a4db8242f.jpg [32m200 [90m2ms - 41.36kb[0m
+[90mGET /tmp/0fd32866b4d149637a8a548b75381e6d.groupinfo.w600.jpg [32m200 [90m681ms - 101.05kb[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m12ms[0m
+[90mGET /tmp/eac424c46a4fb0d0449c94134306e333.jpg [32m200 [90m119ms - 174.99kb[0m
+[90mGET /tmp/d9abefa13acdcb9e044d111bdbd67d50.jpg [32m200 [90m2ms - 22.42kb[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m10ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m10ms[0m
+[90mGET /tmp/b5a13c08176ff2ef16aca646e3eb52cd.jpg [32m200 [90m2ms - 69.82kb[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m9ms[0m
+[90mGET /tmp/2c7a7251f5c5080dd4672fa62b642b0f.jpg [32m200 [90m2ms - 149.38kb[0m
+[90mGET /tmp/d23efb85a8297dc4439c6c7275b22cd4.jpg [32m200 [90m6ms - 77.92kb[0m
+[90mGET /tmp/d23efb85a8297dc4439c6c7275b22cd4.jpg [32m200 [90m109ms - 77.92kb[0m
+[90mGET /tmp/226883dbdafe7eae5074bef590fdcd49.jpg [32m200 [90m174ms - 123.58kb[0m
+[90mGET /tmp/b5dc5f38e6c94e095efe80367c8894be.jpg [32m200 [90m230ms - 134.38kb[0m
+[90mGET /tmp/b5dc5f38e6c94e095efe80367c8894be.jpg [32m200 [90m381ms - 134.38kb[0m
+[90mGET /tmp/b5dc5f38e6c94e095efe80367c8894be.jpg [32m200 [90m3ms - 134.38kb[0m
+[90mGET /tmp/d0939fe528f7d87b1c3fb09effbdd538.jpg [32m200 [90m848ms - 130.49kb[0m
+[90mGET /tmp/226883dbdafe7eae5074bef590fdcd49.jpg [32m200 [90m580ms - 123.58kb[0m
+[90mGET /tmp/d23efb85a8297dc4439c6c7275b22cd4.jpg [32m200 [90m1147ms - 77.92kb[0m
+[90mGET /tmp/771e4af2672206324c0bd9390ba12f73.jpg [32m200 [90m3715ms - 193.83kb[0m
+[90mGET /tmp/14f86e9a6ed8d917f47788b25eb31d54.mp3 [32m200 [90m1492ms - 494.21kb[0m
+[90mGET /tmp/b5ef8370f68f98aeb74c861f7d27de37.jpg [32m200 [90m4ms - 124.39kb[0m
+[90mGET /tmp/29a2f115a473a19e789c95448acd04a6.jpg [32m200 [90m1309ms - 334.37kb[0m
+[90mGET /tmp/a2150a90fc34b702725f0b2fc51dd5db.mp3 [32m200 [90m1768ms - 674.73kb[0m
+[90mGET /tmp/27c08c3daf1d663d2c0f7a4ac353283e.jpg [32m200 [90m3802ms - 333.28kb[0m
+[90mGET /tmp/d9dc33ff8abb9d9ed28b0198bbaa43c9.jpg [32m200 [90m2528ms - 293.25kb[0m
+[90mGET /tmp/a8813cb9e1c91c3a81c181311436ff46.jpg [32m200 [90m2794ms - 197.91kb[0m
+[90mGET /tmp/89db445a9df701050be957b5c211b32e.mp3 [32m200 [90m19397ms - 1.17mb[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m12ms[0m
+[90mGET /tmp/ea989848e153bf031491af38e12e49cd.jpg [32m200 [90m3ms - 233.55kb[0m
+[90mGET /tmp/5e76b8c34772a7ccfa59df0a4db8242f.jpg [32m200 [90m2ms - 41.36kb[0m
+[90mGET /tmp/5e76b8c34772a7ccfa59df0a4db8242f.jpg [32m200 [90m2ms - 41.36kb[0m
+[90mGET /tmp/0fd32866b4d149637a8a548b75381e6d.groupinfo.w600.jpg [32m200 [90m2ms - 101.05kb[0m
+[90mGET /tmp/0fd32866b4d149637a8a548b75381e6d.groupinfo.w600.jpg [32m200 [90m4218ms - 101.05kb[0m
+[90mGET /tmp/eac424c46a4fb0d0449c94134306e333.jpg [32m200 [90m8169ms - 174.99kb[0m
+[90mGET /tmp/eac424c46a4fb0d0449c94134306e333.jpg [32m200 [90m2ms - 174.99kb[0m
+[90mGET /tmp/b5a13c08176ff2ef16aca646e3eb52cd.jpg [32m200 [90m3ms - 69.82kb[0m
+[90mGET /tmp/eac424c46a4fb0d0449c94134306e333.jpg [32m200 [90m2ms - 174.99kb[0m
+[90mGET /tmp/ea989848e153bf031491af38e12e49cd.jpg [32m200 [90m23041ms - 233.55kb[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m11ms[0m
+[90mGET /tmp/2c7a7251f5c5080dd4672fa62b642b0f.jpg [32m200 [90m2ms - 149.38kb[0m
+[90mGET /tmp/5c4754c2fc9e1f4ee1f0612d59342a77.jpg [32m200 [90m2ms - 43.72kb[0m
+[90mGET /tmp/ac9ff8945a1b81043ed089b664271163.jpg [32m200 [90m2ms - 54.31kb[0m
+[90mGET /tmp/1978faf65c2e5b3232e839f1b4fa97a3.groupinfo.w600.jpg [32m200 [90m2ms - 113.73kb[0m
+[90mGET /tmp/ac9ff8945a1b81043ed089b664271163.jpg [32m200 [90m1ms - 54.31kb[0m
+[90mGET /tmp/69f5a36e85a2f4b945adf2456e08bfbf.groupinfo.w600.jpg [32m200 [90m2ms - 92.54kb[0m
+[90mGET /tmp/1978faf65c2e5b3232e839f1b4fa97a3.groupinfo.w600.jpg [32m200 [90m11ms - 113.73kb[0m
+[90mGET /tmp/1978faf65c2e5b3232e839f1b4fa97a3.groupinfo.w600.jpg [32m200 [90m2ms - 113.73kb[0m
+[90mGET /tmp/e35518a1df8e089f99d7cdea47006d9e.jpg [32m200 [90m2ms - 52.17kb[0m
+[90mGET /tmp/62f9b91a83612fcd762d2304ef1c9b41.groupinfo.w600.jpg [32m200 [90m2ms - 138.66kb[0m
+[90mGET /tmp/4ea3b02874f572633421e365953aca2a.jpg [32m200 [90m2ms - 27.39kb[0m
+[90mGET /tmp/cc60752de2c4b215436300b7bffe2678.jpg [32m200 [90m1ms - 35.82kb[0m
+[90mGET /tmp/a5c6270258ec08f5d01bc922e68d80df.jpg [32m200 [90m5537ms - 215.65kb[0m
+[90mGET /tmp/13d2cde470885af17308757da8434e1d.groupinfo.w600.jpg [32m200 [90m3ms - 102.38kb[0m
+[90mGET /tmp/1384371283ca1dcac0d3d5e5e07d39dd.groupinfo.w600.jpg [32m200 [90m2ms - 73.05kb[0m
+[90mGET /tmp/1b76ab6a316c494afc72dd96975c90ab.groupinfo.w600.jpg [32m200 [90m3ms - 78.89kb[0m
+[90mGET /tmp/2a1bd5766dd203e2eb87d20f18d52064.groupinfo.w600.jpg [32m200 [90m2ms - 118.14kb[0m
+[90mGET /tmp/2a1e7684a6a3d5ecbfe70458de0bf060.jpg [32m200 [90m2ms - 80.88kb[0m
+[90mGET /tmp/bbd4da41987ce18751583e67f6a21f22.jpg [32m200 [90m3ms - 229.12kb[0m
+[90mGET /tmp/6715c948f8593acee39387bd8099fc8c.jpg [32m200 [90m2ms - 111.03kb[0m
+[90mGET /tmp/9c3f42ad414394489877e519097aeee8.jpg [32m200 [90m10ms - 64.45kb[0m
+[90mGET /tmp/0361f81947f7f68a0c523b7cb03016bd.jpg [32m200 [90m3ms - 32.52kb[0m
+[90mGET /tmp/a938fc70adb6238f2d4d617bb66f7e61.jpg [32m200 [90m2ms - 74.06kb[0m
+[90mGET /tmp/73672c1297742566c0cf4c7b6f9a937d.mp3 [32m200 [90m7026ms - 351.76kb[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m11ms[0m
+[90mGET /tmp/d9abefa13acdcb9e044d111bdbd67d50.jpg [32m200 [90m2ms - 22.42kb[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m10ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browsebylocation?x=23.060073&y=113.391059&beg=0&end=15 [32m200 [90m11ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m10ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m14ms[0m
+[90mGET /browsebytopic?topic=%E5%AE%B6%E5%BA%AD&beg=0&end=25 [32m200 [90m4ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m10ms[0m
+[90mGET / [32m200 [90m7ms - 3.84kb[0m
+[90mGET /stylesheets/bootstrap-responsive.css [32m200 [90m4ms - 21.59kb[0m
+[90mGET /javascripts/bootstrap.js [32m200 [90m6ms - 60.3kb[0m
+[90mGET /stylesheets/bootstrap.css [32m200 [90m13ms - 124.26kb[0m
+[90mGET /images/logo/logo1.png [32m200 [90m7ms - 11.43kb[0m
+[90mGET /images/logo/logo3.png [32m200 [90m6ms - 22.46kb[0m
+[90mGET /javascripts/jquery.min.js [32m200 [90m13ms - 91.67kb[0m
+[90mGET /images/experience-tours.png [32m200 [90m2ms - 16.33kb[0m
+[90mGET /images/create-tours.png [32m200 [90m16ms - 65.04kb[0m
+[90mGET /stylesheets/main-css.css [32m200 [90m57ms - 192.25kb[0m
+[90mGET /images/3.jpg [32m200 [90m154ms - 410.31kb[0m
+[90mGET /images/1.jpg [32m200 [90m176ms - 651.28kb[0m
+[90mGET /images/2.jpg [32m200 [90m197ms - 616kb[0m
+[90mGET /javascripts/libs.js [32m200 [90m247ms - 716.84kb[0m
+[90mGET /images/bg.jpg [32m200 [90m7ms - 39.06kb[0m
+[90mGET /images/create-bg.jpg [33m404 [90m2ms[0m
+[90mGET /images/experience-bg.jpg [33m404 [90m2ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m24ms[0m
+[90mGET /tmp/5c4754c2fc9e1f4ee1f0612d59342a77.jpg [32m200 [90m2ms - 43.72kb[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m11ms[0m
+[90mGET /detail?lineid=5193a245d3f59a40a9000006 [36m304 [90m38ms[0m
+[90mGET /stylesheets/main-css.css [36m304 [90m3ms[0m
+[90mGET /stylesheets/tour-detail.css [36m304 [90m4ms[0m
+[90mGET /skin/blue.monday/jplayer.blue.monday.css [36m304 [90m3ms[0m
+[90mGET /javascripts/jquery.min.js [36m304 [90m3ms[0m
+[90mGET /javascripts/jqueryui.js [36m304 [90m2ms[0m
+[90mGET /javascripts/jquery.qtip.min.js [36m304 [90m2ms[0m
+[90mGET /javascripts/jquery.jplayer.min.js [36m304 [90m57ms[0m
+[90mGET /javascripts/jquery.mousewheel.js [36m304 [90m54ms[0m
+[90mGET /javascripts/jquery.expander.min.js [36m304 [90m56ms[0m
+[90mGET /javascripts/tour-detail.js [36m304 [90m54ms[0m
+[90mGET /javascripts/jquery.jscrollpane.min.js [36m304 [90m57ms[0m
+[90mGET /images/logo/logo1.png [36m304 [90m1ms[0m
+[90mGET /images/logo/logo3.png [36m304 [90m1ms[0m
+[90mGET /tmp/d23efb85a8297dc4439c6c7275b22cd4.jpg [36m304 [90m1ms[0m
+[90mGET /tmp/771e4af2672206324c0bd9390ba12f73.jpg [36m304 [90m5ms[0m
+[90mGET /tmp/d0939fe528f7d87b1c3fb09effbdd538.jpg [36m304 [90m4ms[0m
+[90mGET /tmp/add52fcdc9685567f6b253a514747ee0.jpg [36m304 [90m4ms[0m
+[90mGET /tmp/206e5b69477df938047957505cab2902.jpg [36m304 [90m3ms[0m
+[90mGET /tmp/226883dbdafe7eae5074bef590fdcd49.jpg [36m304 [90m4ms[0m
+[90mGET /tmp/29a2f115a473a19e789c95448acd04a6.jpg [36m304 [90m3ms[0m
+[90mGET /tmp/b5ef8370f68f98aeb74c861f7d27de37.jpg [36m304 [90m2ms[0m
+[90mGET /tmp/60e6798a943d61cb7c3c2822db4a4bd6.jpg [36m304 [90m1ms[0m
+[90mGET /images/bg.jpg [36m304 [90m1ms[0m
+[90mGET /images/tour-hr.png [36m304 [90m2ms[0m
+[90mGET /images/icon-stops.png [36m304 [90m1ms[0m
+[90mGET /images/icon-duration.png [36m304 [90m1ms[0m
+[90mGET /images/icon-distance.png [36m304 [90m2ms[0m
+[90mGET /images/star-main.png [36m304 [90m8ms[0m
+[90mGET /images/free-bg.png [36m304 [90m10ms[0m
+[90mGET /images/add-fav.png [36m304 [90m10ms[0m
+[90mGET /images/tour-player-container.png [36m304 [90m9ms[0m
+[90mGET /images/tour-player-inner.png [36m304 [90m2ms[0m
+[90mGET /skin/blue.monday/jplayer.blue.monday.jpg [36m304 [90m2ms[0m
+[90mGET /tmp/fc1d73fab54208b698d238d17c23c53c.jpg [36m304 [90m1ms[0m
+[90mGET /tmp/b5dc5f38e6c94e095efe80367c8894be.jpg [36m304 [90m4ms[0m
+[90mGET /tmp/44ad72ff941652e79f8b5871fef17d15.jpg [36m304 [90m4ms[0m
+[90mGET /tmp/14f86e9a6ed8d917f47788b25eb31d54.mp3 [36m304 [90m4ms[0m
+[90mGET /tmp/28c260e0f0bb2ba3ee68ab3a08f54585.jpg [36m304 [90m8ms[0m
+[90mGET /tmp/2f737780cd3313c7fe56409fe703ecf9.jpg [36m304 [90m6ms[0m
+[90mGET /tmp/126862e8edca4582397de76a9f1ba16d.jpg [36m304 [90m6ms[0m
+[90mGET /tmp/89db445a9df701050be957b5c211b32e.mp3 [36m304 [90m4ms[0m
+[90mGET /tmp/a2150a90fc34b702725f0b2fc51dd5db.mp3 [36m304 [90m6ms[0m
+[90mGET /tmp/98b53a427f3f2ea334f5d9259cc45eeb.mp3 [36m304 [90m5ms[0m
+[90mGET /tmp/d9dc33ff8abb9d9ed28b0198bbaa43c9.jpg [36m304 [90m4ms[0m
+[90mGET /tmp/3fb06fe1a186b812949a10997749f207.mp3 [36m304 [90m5ms[0m
+[90mGET /tmp/27c08c3daf1d663d2c0f7a4ac353283e.jpg [36m304 [90m5ms[0m
+[90mGET /tmp/a8813cb9e1c91c3a81c181311436ff46.jpg [36m304 [90m2ms[0m
+[90mGET /tmp/b0f91ed2d20159e3f3514948547e69db.jpg [36m304 [90m2ms[0m
+[90mGET /tmp/c008c251474987d6101d8f34409be36e.jpg [36m304 [90m2ms[0m
+[90mGET /tmp/dfbce392bd6203d85902e0075badb114.jpg [36m304 [90m2ms[0m
+[90mGET /tmp/125838d2974e564b68561722ce62dc71.jpg [36m304 [90m1ms[0m
+[90mGET /tmp/bbc74f867675bf8d77d8e63da9538e89.jpg [36m304 [90m1ms[0m
+[90mGET /tmp/a4be110c22d96f3ff65a0108f31bc4a7.jpg [36m304 [90m21ms[0m
+[90mGET /images/ts-show.png [36m304 [90m5ms[0m
+[90mGET /images/tt-count.png [36m304 [90m6ms[0m
+[90mGET /images/tt-prev.png [36m304 [90m5ms[0m
+[90mGET /images/tt-next.png [36m304 [90m1ms[0m
+[90mGET /images/count-bg.png [36m304 [90m2ms[0m
+[90mGET /tmp/d9abefa13acdcb9e044d111bdbd67d50.jpg [36m304 [90m1ms[0m
+[90mGET /images/1 [36m304 [90m2ms[0m
+[90mGET /images/2 [36m304 [90m3ms[0m
+[90mGET /images/3 [36m304 [90m2ms[0m
+[90mGET /images/4 [36m304 [90m8ms[0m
+[90mGET /images/5 [36m304 [90m7ms[0m
+[90mGET /detail?lineid=5193a245d3f59a40a9000006 [36m304 [90m43ms[0m
+[90mGET /stylesheets/main-css.css [36m304 [90m3ms[0m
+[90mGET /stylesheets/tour-detail.css [36m304 [90m2ms[0m
+[90mGET /skin/blue.monday/jplayer.blue.monday.css [36m304 [90m1ms[0m
+[90mGET /javascripts/jquery.min.js [36m304 [90m2ms[0m
+[90mGET /javascripts/jqueryui.js [36m304 [90m3ms[0m
+[90mGET /javascripts/jquery.qtip.min.js [36m304 [90m5ms[0m
+[90mGET /javascripts/jquery.jplayer.min.js [36m304 [90m2ms[0m
+[90mGET /javascripts/jquery.expander.min.js [36m304 [90m4ms[0m
+[90mGET /javascripts/jquery.jscrollpane.min.js [36m304 [90m3ms[0m
+[90mGET /javascripts/jquery.mousewheel.js [36m304 [90m4ms[0m
+[90mGET /javascripts/tour-detail.js [36m304 [90m3ms[0m
+[90mGET /tmp/add52fcdc9685567f6b253a514747ee0.jpg [36m304 [90m4ms[0m
+[90mGET /tmp/d23efb85a8297dc4439c6c7275b22cd4.jpg [36m304 [90m7ms[0m
+[90mGET /images/logo/logo3.png [36m304 [90m9ms[0m
+[90mGET /images/logo/logo1.png [36m304 [90m15ms[0m
+[90mGET /tmp/d0939fe528f7d87b1c3fb09effbdd538.jpg [36m304 [90m12ms[0m
+[90mGET /tmp/771e4af2672206324c0bd9390ba12f73.jpg [36m304 [90m12ms[0m
+[90mGET /tmp/206e5b69477df938047957505cab2902.jpg [36m304 [90m5ms[0m
+[90mGET /tmp/226883dbdafe7eae5074bef590fdcd49.jpg [36m304 [90m4ms[0m
+[90mGET /tmp/29a2f115a473a19e789c95448acd04a6.jpg [36m304 [90m4ms[0m
+[90mGET /tmp/b5ef8370f68f98aeb74c861f7d27de37.jpg [36m304 [90m3ms[0m
+[90mGET /images/bg.jpg [36m304 [90m3ms[0m
+[90mGET /images/tour-hr.png [36m304 [90m2ms[0m
+[90mGET /tmp/14f86e9a6ed8d917f47788b25eb31d54.mp3 [36m304 [90m3ms[0m
+[90mGET /tmp/a2150a90fc34b702725f0b2fc51dd5db.mp3 [36m304 [90m3ms[0m
+[90mGET /tmp/98b53a427f3f2ea334f5d9259cc45eeb.mp3 [36m304 [90m3ms[0m
+[90mGET /tmp/89db445a9df701050be957b5c211b32e.mp3 [36m304 [90m2ms[0m
+[90mGET /images/icon-stops.png [36m304 [90m2ms[0m
+[90mGET /tmp/3fb06fe1a186b812949a10997749f207.mp3 [36m304 [90m2ms[0m
+[90mGET /images/icon-duration.png [36m304 [90m1ms[0m
+[90mGET /images/icon-distance.png [36m304 [90m2ms[0m
+[90mGET /images/free-bg.png [36m304 [90m2ms[0m
+[90mGET /images/star-main.png [36m304 [90m2ms[0m
+[90mGET /images/add-fav.png [36m304 [90m1ms[0m
+[90mGET /images/tour-player-container.png [36m304 [90m2ms[0m
+[90mGET /images/tour-player-inner.png [36m304 [90m1ms[0m
+[90mGET /skin/blue.monday/jplayer.blue.monday.jpg [36m304 [90m2ms[0m
+[90mGET /tmp/60e6798a943d61cb7c3c2822db4a4bd6.jpg [36m304 [90m2ms[0m
+[90mGET /tmp/fc1d73fab54208b698d238d17c23c53c.jpg [36m304 [90m3ms[0m
+[90mGET /tmp/b5dc5f38e6c94e095efe80367c8894be.jpg [36m304 [90m3ms[0m
+[90mGET /tmp/28c260e0f0bb2ba3ee68ab3a08f54585.jpg [36m304 [90m2ms[0m
+[90mGET /tmp/2f737780cd3313c7fe56409fe703ecf9.jpg [36m304 [90m3ms[0m
+[90mGET /tmp/126862e8edca4582397de76a9f1ba16d.jpg [36m304 [90m2ms[0m
+[90mGET /tmp/44ad72ff941652e79f8b5871fef17d15.jpg [36m304 [90m1ms[0m
+[90mGET /tmp/27c08c3daf1d663d2c0f7a4ac353283e.jpg [36m304 [90m2ms[0m
+[90mGET /tmp/d9dc33ff8abb9d9ed28b0198bbaa43c9.jpg [36m304 [90m1ms[0m
+[90mGET /tmp/a8813cb9e1c91c3a81c181311436ff46.jpg [36m304 [90m1ms[0m
+[90mGET /tmp/b0f91ed2d20159e3f3514948547e69db.jpg [36m304 [90m1ms[0m
+[90mGET /tmp/c008c251474987d6101d8f34409be36e.jpg [36m304 [90m2ms[0m
+[90mGET /tmp/dfbce392bd6203d85902e0075badb114.jpg [36m304 [90m2ms[0m
+[90mGET /tmp/125838d2974e564b68561722ce62dc71.jpg [36m304 [90m1ms[0m
+[90mGET /tmp/bbc74f867675bf8d77d8e63da9538e89.jpg [36m304 [90m3ms[0m
+[90mGET /tmp/a4be110c22d96f3ff65a0108f31bc4a7.jpg [36m304 [90m2ms[0m
+[90mGET /images/ts-show.png [36m304 [90m1ms[0m
+[90mGET /images/tt-count.png [36m304 [90m3ms[0m
+[90mGET /images/tt-prev.png [36m304 [90m2ms[0m
+[90mGET /images/tt-next.png [36m304 [90m2ms[0m
+[90mGET /images/count-bg.png [36m304 [90m1ms[0m
+[90mGET /tmp/d9abefa13acdcb9e044d111bdbd67d50.jpg [36m304 [90m3ms[0m
+[90mGET /images/1 [36m304 [90m3ms[0m
+[90mGET /images/2 [36m304 [90m5ms[0m
+[90mGET /images/3 [36m304 [90m4ms[0m
+[90mGET /images/4 [36m304 [90m2ms[0m
+[90mGET /images/5 [36m304 [90m2ms[0m
+[90mGET /detail?lineid=5193a245d3f59a40a9000006 [36m304 [90m38ms[0m
+[90mGET /stylesheets/main-css.css [36m304 [90m2ms[0m
+[90mGET /stylesheets/tour-detail.css [36m304 [90m1ms[0m
+[90mGET /skin/blue.monday/jplayer.blue.monday.css [36m304 [90m1ms[0m
+[90mGET /javascripts/jquery.min.js [36m304 [90m1ms[0m
+[90mGET /javascripts/jqueryui.js [36m304 [90m1ms[0m
+[90mGET /javascripts/jquery.qtip.min.js [36m304 [90m6ms[0m
+[90mGET /javascripts/jquery.jplayer.min.js [36m304 [90m3ms[0m
+[90mGET /javascripts/jquery.expander.min.js [36m304 [90m3ms[0m
+[90mGET /javascripts/jquery.jscrollpane.min.js [36m304 [90m2ms[0m
+[90mGET /javascripts/jquery.mousewheel.js [36m304 [90m2ms[0m
+[90mGET /javascripts/tour-detail.js [36m304 [90m2ms[0m
+[90mGET /images/logo/logo1.png [36m304 [90m1ms[0m
+[90mGET /tmp/d23efb85a8297dc4439c6c7275b22cd4.jpg [36m304 [90m4ms[0m
+[90mGET /images/logo/logo3.png [36m304 [90m5ms[0m
+[90mGET /tmp/771e4af2672206324c0bd9390ba12f73.jpg [36m304 [90m5ms[0m
+[90mGET /tmp/d0939fe528f7d87b1c3fb09effbdd538.jpg [36m304 [90m4ms[0m
+[90mGET /tmp/add52fcdc9685567f6b253a514747ee0.jpg [36m304 [90m4ms[0m
+[90mGET /tmp/206e5b69477df938047957505cab2902.jpg [36m304 [90m4ms[0m
+[90mGET /tmp/226883dbdafe7eae5074bef590fdcd49.jpg [36m304 [90m4ms[0m
+[90mGET /tmp/29a2f115a473a19e789c95448acd04a6.jpg [36m304 [90m3ms[0m
+[90mGET /tmp/b5ef8370f68f98aeb74c861f7d27de37.jpg [36m304 [90m3ms[0m
+[90mGET /tmp/60e6798a943d61cb7c3c2822db4a4bd6.jpg [36m304 [90m2ms[0m
+[90mGET /tmp/fc1d73fab54208b698d238d17c23c53c.jpg [36m304 [90m1ms[0m
+[90mGET /tmp/b5dc5f38e6c94e095efe80367c8894be.jpg [36m304 [90m2ms[0m
+[90mGET /tmp/28c260e0f0bb2ba3ee68ab3a08f54585.jpg [36m304 [90m2ms[0m
+[90mGET /tmp/2f737780cd3313c7fe56409fe703ecf9.jpg [36m304 [90m2ms[0m
+[90mGET /tmp/126862e8edca4582397de76a9f1ba16d.jpg [36m304 [90m2ms[0m
+[90mGET /tmp/44ad72ff941652e79f8b5871fef17d15.jpg [36m304 [90m2ms[0m
+[90mGET /tmp/27c08c3daf1d663d2c0f7a4ac353283e.jpg [36m304 [90m4ms[0m
+[90mGET /tmp/d9dc33ff8abb9d9ed28b0198bbaa43c9.jpg [36m304 [90m3ms[0m
+[90mGET /tmp/a8813cb9e1c91c3a81c181311436ff46.jpg [36m304 [90m2ms[0m
+[90mGET /tmp/b0f91ed2d20159e3f3514948547e69db.jpg [36m304 [90m1ms[0m
+[90mGET /tmp/c008c251474987d6101d8f34409be36e.jpg [36m304 [90m1ms[0m
+[90mGET /tmp/dfbce392bd6203d85902e0075badb114.jpg [36m304 [90m4ms[0m
+[90mGET /tmp/125838d2974e564b68561722ce62dc71.jpg [36m304 [90m3ms[0m
+[90mGET /tmp/bbc74f867675bf8d77d8e63da9538e89.jpg [36m304 [90m1ms[0m
+[90mGET /tmp/a4be110c22d96f3ff65a0108f31bc4a7.jpg [36m304 [90m1ms[0m
+[90mGET /images/bg.jpg [36m304 [90m2ms[0m
+[90mGET /images/tour-hr.png [36m304 [90m2ms[0m
+[90mGET /images/icon-stops.png [36m304 [90m1ms[0m
+[90mGET /images/icon-duration.png [36m304 [90m2ms[0m
+[90mGET /images/icon-distance.png [36m304 [90m6ms[0m
+[90mGET /images/free-bg.png [36m304 [90m7ms[0m
+[90mGET /images/star-main.png [36m304 [90m2ms[0m
+[90mGET /images/add-fav.png [36m304 [90m3ms[0m
+[90mGET /images/tour-player-container.png [36m304 [90m3ms[0m
+[90mGET /images/tour-player-inner.png [36m304 [90m1ms[0m
+[90mGET /skin/blue.monday/jplayer.blue.monday.jpg [36m304 [90m1ms[0m
+[90mGET /images/ts-show.png [36m304 [90m1ms[0m
+[90mGET /images/tt-count.png [36m304 [90m1ms[0m
+[90mGET /images/tt-prev.png [36m304 [90m2ms[0m
+[90mGET /images/tt-next.png [36m304 [90m2ms[0m
+[90mGET /images/count-bg.png [36m304 [90m1ms[0m
+[90mGET /tmp/d9abefa13acdcb9e044d111bdbd67d50.jpg [36m304 [90m1ms[0m
+[90mGET /tmp/89db445a9df701050be957b5c211b32e.mp3 [36m304 [90m2ms[0m
+[90mGET /tmp/14f86e9a6ed8d917f47788b25eb31d54.mp3 [36m304 [90m5ms[0m
+[90mGET /tmp/a2150a90fc34b702725f0b2fc51dd5db.mp3 [36m304 [90m4ms[0m
+[90mGET /tmp/98b53a427f3f2ea334f5d9259cc45eeb.mp3 [36m304 [90m4ms[0m
+[90mGET /tmp/3fb06fe1a186b812949a10997749f207.mp3 [36m304 [90m2ms[0m
+[90mGET /images/1 [36m304 [90m1ms[0m
+[90mGET /images/2 [36m304 [90m1ms[0m
+[90mGET /images/3 [36m304 [90m2ms[0m
+[90mGET /images/4 [36m304 [90m1ms[0m
+[90mGET /images/5 [36m304 [90m1ms[0m
+[90mGET /detail?lineid=5193a245d3f59a40a9000006 [32m200 [90m36ms - 47.27kb[0m
+[90mGET /stylesheets/tour-detail.css [32m200 [90m6ms - 17.04kb[0m
+[90mGET /skin/blue.monday/jplayer.blue.monday.css [32m200 [90m6ms - 11.95kb[0m
+[90mGET /javascripts/jquery.qtip.min.js [32m200 [90m5ms - 31kb[0m
+[90mGET /javascripts/jquery.jplayer.min.js [32m200 [90m2ms - 42.64kb[0m
+[90mGET /javascripts/jquery.min.js [32m200 [90m23ms - 91.67kb[0m
+[90mGET /stylesheets/main-css.css [32m200 [90m36ms - 192.25kb[0m
+[90mGET /javascripts/jqueryui.js [32m200 [90m41ms - 195.12kb[0m
+[90mGET /javascripts/jquery.expander.min.js [32m200 [90m1ms - 4.74kb[0m
+[90mGET /javascripts/jquery.jscrollpane.min.js [32m200 [90m1ms - 14.78kb[0m
+[90mGET /javascripts/jquery.mousewheel.js [32m200 [90m2ms - 2.34kb[0m
+[90mGET /javascripts/tour-detail.js [32m200 [90m2ms - 68.5kb[0m
+[90mGET /images/logo/logo1.png [36m304 [90m4ms[0m
+[90mGET /images/logo/logo3.png [36m304 [90m4ms[0m
+[90mGET /tmp/d23efb85a8297dc4439c6c7275b22cd4.jpg [32m200 [90m8ms - 77.92kb[0m
+[90mGET /tmp/206e5b69477df938047957505cab2902.jpg [32m200 [90m17ms - 127.1kb[0m
+[90mGET /tmp/226883dbdafe7eae5074bef590fdcd49.jpg [32m200 [90m17ms - 123.58kb[0m
+[90mGET /tmp/d0939fe528f7d87b1c3fb09effbdd538.jpg [32m200 [90m37ms - 130.49kb[0m
+[90mGET /tmp/add52fcdc9685567f6b253a514747ee0.jpg [32m200 [90m48ms - 195.61kb[0m
+[90mGET /tmp/771e4af2672206324c0bd9390ba12f73.jpg [32m200 [90m57ms - 193.83kb[0m
+[90mGET /tmp/b5ef8370f68f98aeb74c861f7d27de37.jpg [32m200 [90m2ms - 124.39kb[0m
+[90mGET /tmp/29a2f115a473a19e789c95448acd04a6.jpg [32m200 [90m43ms - 334.37kb[0m
+[90mGET /tmp/b5dc5f38e6c94e095efe80367c8894be.jpg [32m200 [90m37ms - 134.38kb[0m
+[90mGET /tmp/28c260e0f0bb2ba3ee68ab3a08f54585.jpg [32m200 [90m38ms - 128.02kb[0m
+[90mGET /tmp/126862e8edca4582397de76a9f1ba16d.jpg [32m200 [90m41ms - 145.02kb[0m
+[90mGET /tmp/60e6798a943d61cb7c3c2822db4a4bd6.jpg [32m200 [90m47ms - 213.53kb[0m
+[90mGET /images/bg.jpg [36m304 [90m2ms[0m
+[90mGET /images/tour-hr.png [36m304 [90m2ms[0m
+[90mGET /tmp/2f737780cd3313c7fe56409fe703ecf9.jpg [32m200 [90m98ms - 373.66kb[0m
+[90mGET /tmp/44ad72ff941652e79f8b5871fef17d15.jpg [32m200 [90m34ms - 236.67kb[0m
+[90mGET /tmp/fc1d73fab54208b698d238d17c23c53c.jpg [32m200 [90m120ms - 415.24kb[0m
+[90mGET /images/icon-stops.png [36m304 [90m1ms[0m
+[90mGET /images/icon-duration.png [36m304 [90m3ms[0m
+[90mGET /images/icon-distance.png [36m304 [90m3ms[0m
+[90mGET /images/free-bg.png [36m304 [90m2ms[0m
+[90mGET /tmp/27c08c3daf1d663d2c0f7a4ac353283e.jpg [32m200 [90m100ms - 333.28kb[0m
+[90mGET /tmp/d9dc33ff8abb9d9ed28b0198bbaa43c9.jpg [32m200 [90m78ms - 293.25kb[0m
+[90mGET /images/star-main.png [36m304 [90m3ms[0m
+[90mGET /images/add-fav.png [36m304 [90m3ms[0m
+[90mGET /images/tour-player-container.png [36m304 [90m2ms[0m
+[90mGET /tmp/a8813cb9e1c91c3a81c181311436ff46.jpg [32m200 [90m27ms - 197.91kb[0m
+[90mGET /images/tour-player-inner.png [36m304 [90m1ms[0m
+[90mGET /skin/blue.monday/jplayer.blue.monday.jpg [36m304 [90m2ms[0m
+[90mGET /tmp/dfbce392bd6203d85902e0075badb114.jpg [32m200 [90m54ms - 338.19kb[0m
+[90mGET /tmp/c008c251474987d6101d8f34409be36e.jpg [32m200 [90m66ms - 325.39kb[0m
+[90mGET /images/ts-show.png [36m304 [90m1ms[0m
+[90mGET /images/tt-count.png [36m304 [90m1ms[0m
+[90mGET /tmp/bbc74f867675bf8d77d8e63da9538e89.jpg [32m200 [90m39ms - 174.75kb[0m
+[90mGET /tmp/b0f91ed2d20159e3f3514948547e69db.jpg [32m200 [90m109ms - 430.94kb[0m
+[90mGET /tmp/125838d2974e564b68561722ce62dc71.jpg [32m200 [90m67ms - 279.94kb[0m
+[90mGET /images/tt-prev.png [36m304 [90m1ms[0m
+[90mGET /images/tt-next.png [36m304 [90m5ms[0m
+[90mGET /images/count-bg.png [36m304 [90m1ms[0m
+[90mGET /tmp/a4be110c22d96f3ff65a0108f31bc4a7.jpg [32m200 [90m83ms - 296.38kb[0m
+[90mGET /tmp/d9abefa13acdcb9e044d111bdbd67d50.jpg [36m304 [90m2ms[0m
+[90mGET /tmp/14f86e9a6ed8d917f47788b25eb31d54.mp3 [36m304 [90m3ms[0m
+[90mGET /tmp/a2150a90fc34b702725f0b2fc51dd5db.mp3 [36m304 [90m5ms[0m
+[90mGET /tmp/98b53a427f3f2ea334f5d9259cc45eeb.mp3 [36m304 [90m4ms[0m
+[90mGET /tmp/89db445a9df701050be957b5c211b32e.mp3 [36m304 [90m3ms[0m
+[90mGET /tmp/3fb06fe1a186b812949a10997749f207.mp3 [36m304 [90m3ms[0m
+[90mGET /images/1 [36m304 [90m6ms[0m
+[90mGET /images/2 [36m304 [90m5ms[0m
+[90mGET /images/3 [36m304 [90m5ms[0m
+[90mGET /images/4 [36m304 [90m4ms[0m
+[90mGET /images/5 [36m304 [90m3ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m23ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m10ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m10ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m9ms[0m
+[90mGET /tmp/6397e47c31204b7ec7cfe9ed507e5761.mp3 [32m200 [90m526ms - 354.21kb[0m
+[90mGET /tmp/d403ceb21f1452e7d435975e1ee89599.jpg [32m200 [90m2ms - 99.61kb[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m11ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m10ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m10ms[0m
+[90mGET /tmp/4bee7116aa85fffe0f7df2c5efa94438.groupinfo.w600.jpg [32m200 [90m2ms - 92.54kb[0m
+[90mGET /tmp/20f68ac6a25f1ea58f6aa2f5e70a6e49.jpg [32m200 [90m40ms - 43.29kb[0m
+[90mGET /tmp/0566b4047fc09d00c0e208242072c2dd.groupinfo.w600.jpg [32m200 [90m43ms - 81.18kb[0m
+[90mGET /tmp/8a83e18d99809d81c1cd300ca4c24cab.groupinfo.w600.jpg [32m200 [90m2ms - 95.62kb[0m
+[90mGET /tmp/78600378f4db4fefa9c4226ac32416ae.jpg [32m200 [90m1ms - 59.66kb[0m
+[90mGET /tmp/0ec22c85dc352f72303d33c73f6a8bd0.groupinfo.w600.jpg [32m200 [90m1ms - 114.01kb[0m
+[90mGET /tmp/2e5ffdfbcd28b753d71d1c6fc3024b8e.groupinfo.w600.jpg [32m200 [90m2ms - 145.27kb[0m
+[90mGET /tmp/b88b504e3bbc9474efd92efa7822f7bc.groupinfo.w600.jpg [32m200 [90m4ms - 73.05kb[0m
+[90mGET /tmp/ff83e6625edc8783b27e02ed54214816.groupinfo.w600.jpg [32m200 [90m3ms - 82.91kb[0m
+[90mGET /tmp/cf5acd056b4ce2e69ca0f762b5c6866c.groupinfo.w600.jpg [32m200 [90m2ms - 82.36kb[0m
+[90mGET /tmp/8d404e83b6594228da09dba2d974cdac.groupinfo.w600.jpg [32m200 [90m2ms - 76.65kb[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m10ms[0m
+[90mGET /tmp/b5dc5f38e6c94e095efe80367c8894be.jpg [32m200 [90m2ms - 134.38kb[0m
+[90mGET /tmp/d23efb85a8297dc4439c6c7275b22cd4.jpg [32m200 [90m19ms - 77.92kb[0m
+[90mGET /tmp/226883dbdafe7eae5074bef590fdcd49.jpg [32m200 [90m7ms - 123.58kb[0m
+[90mGET /tmp/226883dbdafe7eae5074bef590fdcd49.jpg [32m200 [90m2ms - 123.58kb[0m
+[90mGET /tmp/226883dbdafe7eae5074bef590fdcd49.jpg [32m200 [90m6ms - 123.58kb[0m
+[90mGET /tmp/27c08c3daf1d663d2c0f7a4ac353283e.jpg [32m200 [90m1360ms - 333.28kb[0m
+[90mGET /tmp/c008c251474987d6101d8f34409be36e.jpg [32m200 [90m1432ms - 325.39kb[0m
+[90mGET /tmp/125838d2974e564b68561722ce62dc71.jpg [32m200 [90m347ms - 279.94kb[0m
+[90mGET /tmp/dfbce392bd6203d85902e0075badb114.jpg [32m200 [90m791ms - 338.19kb[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m12ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browsebylocation?x=23.1008&y=113.300616&beg=0&end=15 [32m200 [90m10ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m10ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m10ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m10ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m10ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m10ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browseallbytime?beg=0&end=25 [32m200 [90m19ms[0m
+[90mGET / [32m200 [90m15ms - 3.84kb[0m
+[90mGET /stylesheets/bootstrap-responsive.css [32m200 [90m4ms - 21.59kb[0m
+[90mGET /stylesheets/bootstrap.css [32m200 [90m8ms - 124.26kb[0m
+[90mGET /stylesheets/main-css.css [32m200 [90m36ms - 192.25kb[0m
+[90mGET /javascripts/jquery.min.js [32m200 [90m2ms - 91.67kb[0m
+[90mGET /javascripts/bootstrap.js [32m200 [90m2ms - 60.3kb[0m
+[90mGET /javascripts/libs.js [32m200 [90m95ms - 716.84kb[0m
+[90mGET /images/logo/logo1.png [32m200 [90m2ms - 11.43kb[0m
+[90mGET /images/logo/logo3.png [32m200 [90m2ms - 22.46kb[0m
+[90mGET /images/1.jpg [32m200 [90m86ms - 651.28kb[0m
+[90mGET /images/experience-tours.png [32m200 [90m3ms - 16.33kb[0m
+[90mGET /images/create-tours.png [32m200 [90m24ms - 65.04kb[0m
+[90mGET /images/2.jpg [32m200 [90m73ms - 616kb[0m
+[90mGET /images/3.jpg [32m200 [90m101ms - 410.31kb[0m
+[90mGET /images/bg.jpg [32m200 [90m2ms - 39.06kb[0m
+[90mGET /images/create-bg.jpg [33m404 [90m1ms[0m
+[90mGET /images/experience-bg.jpg [33m404 [90m1ms[0m
+5193a245d3f59a40a9000006
+51939ee8d3f59a40a9000005
+519373c0d3f59a40a9000004
+51936d95d3f59a40a9000003
+51935c39d3f59a40a9000001
+51934f7e8447a4384a000002
+[90mGET /browse [32m200 [90m29ms - 11.04kb[0m
+[90mGET /javascripts/jquery.min.js [36m304 [90m1ms[0m
+[90mGET /stylesheets/main-css.css [36m304 [90m1ms[0m
+[90mGET /stylesheets/tour-list.css [32m200 [90m7ms - 3.22kb[0m
+[90mGET /javascripts/jqueryval.js [32m200 [90m19ms - 25.91kb[0m
+[90mGET /javascripts/modernizr.js [32m200 [90m19ms - 20.61kb[0m
+[90mGET /javascripts/jquery.qtip.min.js [32m200 [90m18ms - 31kb[0m
+[90mGET /javascripts/jqueryui.js [32m200 [90m21ms - 195.12kb[0m
+[90mGET /javascripts/jquery.jplayer.min.js [32m200 [90m17ms - 42.64kb[0m
+[90mGET /javascripts/jquery.expander.min.js [32m200 [90m10ms - 4.74kb[0m
+[90mGET /javascripts/jquery.selectbox.min.js [32m200 [90m9ms - 12.43kb[0m
+[90mGET /javascripts/libs.js [36m304 [90m1ms[0m
+[90mGET /images/logo/logo1.png [36m304 [90m1ms[0m
+[90mGET /images/logo/logo3.png [36m304 [90m2ms[0m
+[90mGET /images/logo/logo.png [32m200 [90m3ms - 35.2kb[0m
+[90mGET /tmp/d9abefa13acdcb9e044d111bdbd67d50.jpg [32m200 [90m2ms - 22.42kb[0m
+[90mGET /tmp/5e76b8c34772a7ccfa59df0a4db8242f.jpg [32m200 [90m2ms - 41.36kb[0m
+[90mGET /tmp/ea989848e153bf031491af38e12e49cd.jpg [32m200 [90m32ms - 233.55kb[0m
+[90mGET /tmp/5c4754c2fc9e1f4ee1f0612d59342a77.jpg [32m200 [90m9ms - 43.72kb[0m
+[90mGET /tmp/0fd32866b4d149637a8a548b75381e6d.groupinfo.w600.jpg [32m200 [90m14ms - 101.05kb[0m
+[90mGET /tmp/eac424c46a4fb0d0449c94134306e333.jpg [32m200 [90m14ms - 174.99kb[0m
+[90mGET /tmp/b5a13c08176ff2ef16aca646e3eb52cd.jpg [32m200 [90m20ms - 69.82kb[0m
+[90mGET /tmp/2c7a7251f5c5080dd4672fa62b642b0f.jpg [32m200 [90m4ms - 149.38kb[0m
+[90mGET /images/bg.jpg [36m304 [90m1ms[0m
+[90mGET /images/main-btours.png [33m404 [90m2ms[0m
+[90mGET /images/star-mini.png [32m200 [90m1ms - 1.92kb[0m
+[90mGET /images/language.png [32m200 [90m1ms - 1.68kb[0m
+[90mGET /images/free-bg.png [32m200 [90m1ms - 1.87kb[0m
+[90mGET /detail?lineid=5193a245d3f59a40a9000006 [32m200 [90m20ms - 47.27kb[0m
+[90mGET /stylesheets/main-css.css [36m304 [90m2ms[0m
+[90mGET /stylesheets/tour-detail.css [32m200 [90m5ms - 17.04kb[0m
+[90mGET /skin/blue.monday/jplayer.blue.monday.css [32m200 [90m5ms - 11.95kb[0m
+[90mGET /javascripts/jquery.min.js [36m304 [90m2ms[0m
+[90mGET /javascripts/jqueryui.js [36m304 [90m6ms[0m
+[90mGET /javascripts/jquery.qtip.min.js [36m304 [90m6ms[0m
+[90mGET /javascripts/jquery.jplayer.min.js [36m304 [90m5ms[0m
+[90mGET /javascripts/jquery.expander.min.js [36m304 [90m5ms[0m
+[90mGET /javascripts/jquery.jscrollpane.min.js [32m200 [90m7ms - 14.78kb[0m
+[90mGET /javascripts/jquery.mousewheel.js [32m200 [90m5ms - 2.34kb[0m
+[90mGET /javascripts/tour-detail.js [32m200 [90m3ms - 68.5kb[0m
+[90mGET /images/logo/logo1.png [36m304 [90m1ms[0m
+[90mGET /images/logo/logo3.png [36m304 [90m2ms[0m
+[90mGET /tmp/d23efb85a8297dc4439c6c7275b22cd4.jpg [32m200 [90m18ms - 77.92kb[0m
+[90mGET /tmp/771e4af2672206324c0bd9390ba12f73.jpg [32m200 [90m9ms - 193.83kb[0m
+[90mGET /tmp/d0939fe528f7d87b1c3fb09effbdd538.jpg [32m200 [90m2ms - 130.49kb[0m
+[90mGET /tmp/add52fcdc9685567f6b253a514747ee0.jpg [32m200 [90m2ms - 195.61kb[0m
+[90mGET /tmp/206e5b69477df938047957505cab2902.jpg [32m200 [90m2ms - 127.1kb[0m
+[90mGET /tmp/226883dbdafe7eae5074bef590fdcd49.jpg [32m200 [90m2ms - 123.58kb[0m
+[90mGET /tmp/29a2f115a473a19e789c95448acd04a6.jpg [32m200 [90m9ms - 334.37kb[0m
+[90mGET /tmp/b5ef8370f68f98aeb74c861f7d27de37.jpg [32m200 [90m6ms - 124.39kb[0m
+[90mGET /tmp/60e6798a943d61cb7c3c2822db4a4bd6.jpg [32m200 [90m2ms - 213.53kb[0m
+[90mGET /tmp/fc1d73fab54208b698d238d17c23c53c.jpg [32m200 [90m16ms - 415.24kb[0m
+[90mGET /tmp/b5dc5f38e6c94e095efe80367c8894be.jpg [32m200 [90m2ms - 134.38kb[0m
+[90mGET /tmp/28c260e0f0bb2ba3ee68ab3a08f54585.jpg [32m200 [90m2ms - 128.02kb[0m
+[90mGET /tmp/2f737780cd3313c7fe56409fe703ecf9.jpg [32m200 [90m3ms - 373.66kb[0m
+[90mGET /tmp/126862e8edca4582397de76a9f1ba16d.jpg [32m200 [90m7ms - 145.02kb[0m
+[90mGET /tmp/44ad72ff941652e79f8b5871fef17d15.jpg [32m200 [90m2ms - 236.67kb[0m
+[90mGET /tmp/27c08c3daf1d663d2c0f7a4ac353283e.jpg [32m200 [90m2ms - 333.28kb[0m
+[90mGET /tmp/d9dc33ff8abb9d9ed28b0198bbaa43c9.jpg [32m200 [90m2ms - 293.25kb[0m
+[90mGET /tmp/a8813cb9e1c91c3a81c181311436ff46.jpg [32m200 [90m2ms - 197.91kb[0m
+[90mGET /tmp/b0f91ed2d20159e3f3514948547e69db.jpg [32m200 [90m3ms - 430.94kb[0m
+[90mGET /tmp/c008c251474987d6101d8f34409be36e.jpg [32m200 [90m3ms - 325.39kb[0m
+[90mGET /tmp/dfbce392bd6203d85902e0075badb114.jpg [32m200 [90m3ms - 338.19kb[0m
+[90mGET /tmp/125838d2974e564b68561722ce62dc71.jpg [32m200 [90m2ms - 279.94kb[0m
+[90mGET /tmp/bbc74f867675bf8d77d8e63da9538e89.jpg [32m200 [90m2ms - 174.75kb[0m
+[90mGET /tmp/a4be110c22d96f3ff65a0108f31bc4a7.jpg [32m200 [90m2ms - 296.38kb[0m
+[90mGET /images/bg.jpg [36m304 [90m2ms[0m
+[90mGET /images/tour-hr.png [32m200 [90m1ms - 15.5kb[0m
+[90mGET /images/icon-stops.png [32m200 [90m1ms - 1.8kb[0m
+[90mGET /images/icon-duration.png [32m200 [90m1ms - 2.22kb[0m
+[90mGET /images/free-bg.png [36m304 [90m2ms[0m
+[90mGET /images/icon-distance.png [32m200 [90m3ms - 1.98kb[0m
+[90mGET /images/star-main.png [32m200 [90m1ms - 2.43kb[0m
+[90mGET /images/add-fav.png [32m200 [90m3ms - 1.62kb[0m
+[90mGET /images/tour-player-container.png [32m200 [90m2ms - 38.8kb[0m
+[90mGET /images/tour-player-inner.png [32m200 [90m1ms - 11.16kb[0m
+[90mGET /skin/blue.monday/jplayer.blue.monday.jpg [32m200 [90m2ms - 22.65kb[0m
+[90mGET /images/ts-show.png [32m200 [90m1ms - 3.29kb[0m
+[90mGET /images/tt-count.png [32m200 [90m1ms - 2.23kb[0m
+[90mGET /images/tt-prev.png [32m200 [90m2ms - 1.16kb[0m
+[90mGET /images/tt-next.png [32m200 [90m2ms - 1.14kb[0m
+[90mGET /images/count-bg.png [32m200 [90m1ms - 2.08kb[0m
+[90mGET /tmp/d9abefa13acdcb9e044d111bdbd67d50.jpg [36m304 [90m1ms[0m
+[90mGET /tmp/14f86e9a6ed8d917f47788b25eb31d54.mp3 [36m304 [90m1ms[0m
+[90mGET /tmp/a2150a90fc34b702725f0b2fc51dd5db.mp3 [36m304 [90m1ms[0m
+[90mGET /tmp/98b53a427f3f2ea334f5d9259cc45eeb.mp3 [36m304 [90m3ms[0m
+[90mGET /tmp/89db445a9df701050be957b5c211b32e.mp3 [36m304 [90m3ms[0m
+[90mGET /tmp/3fb06fe1a186b812949a10997749f207.mp3 [36m304 [90m2ms[0m
+[90mGET /images/1 [32m200 [90m2ms - 2.65kb[0m
+[90mGET /images/2 [32m200 [90m2ms - 2.65kb[0m
+[90mGET /images/3 [32m200 [90m2ms - 2.65kb[0m
+[90mGET /images/4 [32m200 [90m2ms - 2.65kb[0m
+[90mGET /images/5 [32m200 [90m1ms - 2.65kb[0m
+[90mGET /images/ts-show.png [36m304 [90m2ms[0m
+[90mGET /images/preview.png [32m200 [90m2ms - 11.16kb[0m
+[90mGET /images/question.png [32m200 [90m1ms - 1.69kb[0m
+[90mGET /images/tour-img-left.png [32m200 [90m1ms - 1.57kb[0m
+[90mGET /images/tour-img-right.png [32m200 [90m5ms - 1.56kb[0m
+[90mGET /skin/blue.monday/jplayer.blue.monday.jpg [36m304 [90m4ms[0m
+[90mGET /images/tt-count.png [36m304 [90m4ms[0m
+[90mGET /images/closetour.png [32m200 [90m2ms - 2.46kb[0m
+[90mGET /skin/blue.monday/jplayer.blue.monday.jpg [36m304 [90m2ms[0m
+[90mGET /skin/blue.monday/jplayer.blue.monday.jpg [36m304 [90m1ms[0m
+[90mGET /images/question.png [36m304 [90m1ms[0m
+[90mGET / [36m304 [90m5ms[0m
+[90mGET /stylesheets/bootstrap.css [36m304 [90m1ms[0m
+[90mGET /stylesheets/bootstrap-responsive.css [36m304 [90m1ms[0m
+[90mGET /stylesheets/main-css.css [36m304 [90m1ms[0m
+[90mGET /javascripts/jquery.min.js [36m304 [90m4ms[0m
+[90mGET /javascripts/libs.js [36m304 [90m3ms[0m
+[90mGET /javascripts/bootstrap.js [36m304 [90m3ms[0m
+[90mGET /images/logo/logo1.png [36m304 [90m3ms[0m
+[90mGET /images/logo/logo3.png [36m304 [90m1ms[0m
+[90mGET /images/1.jpg [36m304 [90m1ms[0m
+[90mGET /images/2.jpg [36m304 [90m1ms[0m
+[90mGET /images/create-tours.png [36m304 [90m3ms[0m
+[90mGET /images/experience-tours.png [36m304 [90m3ms[0m
+[90mGET /images/bg.jpg [36m304 [90m1ms[0m
+[90mGET /images/create-bg.jpg [33m404 [90m2ms[0m
+[90mGET /images/experience-bg.jpg [33m404 [90m1ms[0m
+[90mGET /images/3.jpg [36m304 [90m1ms[0m
+[90mGET /create [36m302 [90m5ms - 70[0m
+[90mGET /signin [32m200 [90m5ms - 6.32kb[0m
+[90mGET /stylesheets/main-css.css [36m304 [90m1ms[0m
+[90mGET /javascripts/jquery.min.js [36m304 [90m2ms[0m
+[90mGET /javascripts/jqueryui.js [36m304 [90m3ms[0m
+[90mGET /stylesheets/signin.css [32m200 [90m5ms - 114.37kb[0m
+[90mGET /images/yunyou2.png [32m200 [90m2ms - 3.32kb[0m
+[90mGET /Content/Images/loader.gif [33m404 [90m2ms[0m
+[90mGET /Content/Images/letter.png [33m404 [90m1ms[0m
+[90mGET /images/bg.jpg [36m304 [90m2ms[0m

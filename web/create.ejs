@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title><%= title %></title>
+    <meta name="viewport" content="width=device-width">
+    <link href="./stylesheets/main.css" rel="stylesheet">
+    <link href="./stylesheets/step2-css.css" rel="stylesheet">
+		<link rel="icon" href="/ic_launcher.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/ic_launcher.png" type="image/x-icon">
+    <script src="./javascripts/jquery.min.js"></script>
+    <script src="./javascripts/jquery.js"></script>
+    <script src="./javascripts/jqueryui.js"></script>
+    <script src="./javascripts/jquery.uploadify.min.js" type="text/javascript"></script>
+    <script src="./javascripts/jquery.jscrollpane.min.js"></script>
+    <script src="./javascripts/libs.js"></script>
+		<style type="text/css">
+	#main-nav {
+	position: absolute;
+	display: block;
+	left: 500px;
+	top: 30px;
+	}
+	#main-nav ul {
+	display: block;
+	height: 34px;
+	}
+	#main-nav ul li {
+	display: block;
+	float: left;
+	height: 32px;
+	font-size: 16px;
+	margin-right: 13px;
+	}
+	#main-nav ul li a {
+	height: 32px;
+	color: #5d5d5e;
+	font-family: 'Arial W01 Rounded Bold', sans-serif;
+	letter-spacing: -0.05em;
+	border: 1px solid rgba(223,217,209,.75);
+	padding: 0 20px;
+	line-height: 31px;
+	-moz-border-radius: 17px;
+	-webkit-border-radius: 17px;
+	border-radius: 17px;
+	box-shadow: 0 1px 0 #fff;
+	display: block;
+	}
+	</style>
+
+    <script type="text/javascript">
+        var baseUrl = "/";
+        var userID = "";
+	    var lang = "en";
+
+    </script>
+    
+    <script src="./javascripts/jquery.jcarousel.min.js" type="text/javascript"></script>
+    <script src="./javascripts/tourlist.js"></script>
+
+    <script type="text/javascript">
+        var strToursDeleteSuccess = "Tour(s) successfully deleted";var strToursDeleteLoading = "Deleting... Please wait";var strToursDeleteConfirm = "Do you really want to delete all the selected tours?";var strTourGridLoading = "Loading… Please wait";var strMessageUnexpectedError = '';;
+        var stopList = [];
+
+    </script>
+</head>
+<body>
+<header id="home-header">
+    <div id="header-content">
+<<<<<<< HEAD
+      <h1 style="width: 600px">
+      <a href="/">
+      	<img src="/images/yunyou2.png" style="width: 168px"></a>
+			<a href="/">
+        <img src="/images/logo/fengqi_asia_logo3.png" style="width: 208px; padding-top: 15px;"></a>
+      </h1>
+			<nav id="main-nav">
+          	<ul class="clearfix">
+                <li class="/browse"><a href="/browse" style="background-color: #ffffff;">观看线路</a></li>
+                <li class="/create"><a href="/create" style="background-color: #ffffff;">创建线路</a></li>
+            </ul>
+		</nav>
+=======
+        <h1>
+        <a href="/">
+        	<img src="/images/yunyou2.png" style="width: 168px"></a>
+        </h1>
+>>>>>>> 30623feb1a160ec6f9b1b16e10110de67a1c8be1
+		<div id="sub-nav">
+			<ul class="subnav-links clearfix">
+				<li id="subnav-user">
+                    <a href="#" class="dropbtn">
+                        <em><span><%= user %></span></em>
+                    </a>
+                    <div class="subnav-dropdown" id="sn-user-dropdown">
+                        <span class="sn-user-email"></span>
+                        <ul class="sn-meta">                                    
+                            <li><a href="/" target="_blank">主页设置</a></li>
+                        </ul>
+                        <ul>                                    
+                            <li><a href="/logout">退出帐号</a></li>
+                        </ul>
+                    </div>
+                </li>				
+			</ul>
+		</div>            
+    </div>
+</header>
+<!--！ end header //++++++++++++++++++++++++++++++++++++-->
+
+
+<div id="subheader">
+    <div id="subheader-inside" class="clearfix">
+        <ul>
+            <li class="active subheader-selected"><a href="/">线路</a></li>
+        </ul>
+        
+	    <p class="clearfix newtour-btn">
+	        <a href="/step1" class="medium-button-action"><span>创建新线路</span>
+	        </a>
+	    </p>
+    </div>
+</div>
+<!-- end #subheader //-->
+    
+<img src="./images/tl-controls.png" style="width:1px;height:1px">
+
+<div role="main" id="main" class="main-notour" style="display:none">
+    <div class="create-tour-arrow">
+        <strong>点击创建新路线</strong>
+        
+    </div>
+    <br class="cb">
+    <div class="no-tours clearfix">
+        还没有创建路线
+    </div>
+</div>
+<!-- end #main //-->
+
+<div role="main" id="main" class="main-tour" style="display:block;">
+    <div class="tourlist-meta clearfix" style="padding-bottom: 20px;">
+        <h2 class="tourlist-title">
+            所有线路
+        </h2>
+</div>
+    <!-- end .tourlist-meta //-->
+    <div class="no-tours clearfix  no-results" style="display: none">
+        没有找到路线
+    </div>
+<% lines.forEach(function(line, index) { %>	
+<div id="AjaxGrid">
+    <div class="tourlist-item" id="tour-block-iVrsCPFXsHU">
+	    
+    <input type="checkbox" name="tlitem" class="tlitem tour-checkbox" value="iVrsCPFXsHU">
+    <div class="tlimg">
+	    <a href="/detail?lineid=<%= line._id %>">
+	<img id="thumb-img" src=<%= line.coverThumbnail %> height=128 width=128>
+        </a>
+    </div>
+    <p class="tl-place">
+    <%= line.mapAddress %> 
+    </p>
+    <h3 class="tl-title">
+	    <a href="/detail?lineid=<%= line._id %>"><%= line.lineName %></a>
+    </h3>
+    <p class="tl-author">
+        作者 <%= line.author %>
+    </p>
+    <p class="tl-lang has-lang">
+        语言 <span class="label-lang">中文</span>
+    </p>
+    <div class="tl-change clearfix">
+        <p class="l-change">
+	创建日期 <span><%= line.createDate.getFullYear() %>/<%= line.createDate.getMonth() %>/<%= line.createDate.getDate() %></span>
+        </p>
+	<!--<span class="lab-draft lab">完成</span> -->
+    </div>
+
+    <p class="stops-num">
+    <%= Object.keys(line.stops).length %> 个站点
+    </p>
+    <div class="stop-thumbs">
+        <div class="stop-thumbs-show">
+            <div class=" jcarousel-skin-guidigo">
+            	<div class="jcarousel-container jcarousel-container-horizontal" style="position: relative; display: block;">
+            		<div class="jcarousel-clip jcarousel-clip-horizontal" style="position: relative;">
+				<ul class="stops-carousel jcarousel-list jcarousel-list-horizontal" data-count= <%= Object.keys(line.stops).length %> data-key="iVrsCPFXsHU" style="overflow: hidden; position: relative; top: 0px; margin: 0px; padding: 0px; left: 0px; width: 372px;">
+					<% line.stops.forEach(function(stop, index) { %>
+					<li class="jcarousel-item jcarousel-item-horizontal jcarousel-item-1 jcarousel-item-1-horizontal" style="float: left; list-style: none; width: 62px;" jcarouselindex="1">
+						
+					<a href="/detail?lineid=<%= line._id %>" oldtitle="&lt;b&gt;北京&lt;/b&gt;&lt;br&gt;&lt;em&gt;3&lt;/em&gt; images, &lt;em&gt;00:12&lt;/em&gt; audio, &lt;em&gt;in sync&lt;/em&gt;">
+						
+							<img src=<%= stop.stopThumbnail %>  width=60 height=60 >
+							<span class="s-num"><%= stop.num %></span>
+							  
+						</a>
+					</li>
+					<% }) %>	
+				</ul>
+			</div>
+					       
+						  
+            <div class="jcarousel-prev jcarousel-prev-horizontal jcarousel-prev-disabled jcarousel-prev-disabled-horizontal" style="display: block;" disabled="disabled"></div>
+	    <div class="jcarousel-next jcarousel-next-horizontal jcarousel-next-disabled jcarousel-next-disabled-horizontal" style="display: block;" disabled="disabled"></div>
+		</div>
+	    </div>
+        </div>
+    </div>
+
+
+    <!-- end .stop-thumbs //-->
+    <div class="tl-controls-container" data-lang="zh" data-id="iVrsCPFXsHU">
+        <div class="tl-controls">
+            <ul>
+                <li class="tlc-first"><a class="tlc-edit" href="">编辑</a></li>
+                <li><a href="" class="tlc-clone">复制</a></li>
+                <li><a href="/remove?lineid=<%= line._id %>" class="tlc-delete">删除</a></li>
+            </ul>
+        </div>
+	<!-- end .tl-controls //-->	
+    </div>
+    <!-- end .tl-controls-container //-->
+  	
+</div>
+<!-- end .tourlist-item //-->
+    </div>
+
+    <% }) %>
+    <fieldset class="allitems">
+    <div class="tourlist-meta2">
+        <div class="tourlist-pagination clearfix">
+		<ul><li><a class="ltf-disabled page" data-index="0"><%= Object.keys(lines).length %></a></li></ul>
+        </div>
+        
+        <div class="tourlist-move clearfix">
+        <p class="pages-of clearfix">
+            <strong>1-    1
+
+            </strong>of <strong>1</strong>
+        </p>
+
+        <p class="pages-ctrl clearfix">
+            <a href="" class="page-prev  page-disabled ir">previous</a>
+
+            <a href="" class="page-next ir page-disabled score-1875">next</a>
+        </p>
+        </div>
+
+        <!-- end .tourlist-move //-->
+    </div>
+    </fieldset>
+</div>
+
+<!-- end #main //-->
+
+
+    <script type="text/javascript">
+    var guidigo = guidigo || {};
+    guidigo.alert_popup = null;
+    guidigo.last_focus = null;
+    guidigo.alert_queue = [];
+
+    function quota_alert(message) {
+        var popup = $("#quota-alert-js-window");
+        popup.find("#text").html(message);
+        popup.lightbox_me({
+            centered: true,
+            closeSelector: ".close-window",
+            overlayCSS: {
+                background: 'black',
+                opacity: .2,
+                zIndex: 9998
+            },
+            zIndex: 9999,
+            onClose: function () {
+            }
+        });
+
+    }
+
+    function alert(message, title) {
+        if (guidigo.alert_popup != null) {
+            guidigo.alert_queue.push({ type: "alert", message: message, title: title });
+            return;
+        }
+
+        guidigo.last_focus = $("input, textarea").filter(":focus");
+        guidigo.last_focus.trigger("blur");
+
+        guidigo.show_alert_popup(message, title);
+
+        $(document).bind("keyup.popup", function (e) {
+            if (e.keyCode == 13) {
+                if (guidigo.alert_popup) {
+                    guidigo.alert_popup.trigger("close");
+                    if (guidigo.last_focus) {
+                        guidigo.last_focus.trigger("focus");
+                        guidigo.last_focus = null;
+                    }
+                }
+            }
+        });
+    }
+
+    guidigo.show_next = function () {
+        guidigo.alert_queue.reverse();
+        var next = guidigo.alert_queue.pop();
+        guidigo.alert_queue.reverse();
+        switch (next.type) {
+            case "alert":
+            default:
+                guidigo.show_alert_popup(next.message, next.title);
+                break;
+        }
+    };
+
+    guidigo.show_alert_popup = function (message, title) {
+        var popup = $("#alert-js-window");
+
+        popup.find("#title").html(title);
+        popup.find("#text").html(message);
+        guidigo.alert_popup = popup.lightbox_me({
+            centered: true,
+            closeSelector: ".close-window",
+            overlayCSS: {
+                background: 'black',
+                opacity: .2,
+                zIndex: 9998
+            },
+            zIndex: 9999,
+            onClose: function () {
+                if (guidigo.alert_queue.length == 0) {
+                    $(document).unbind("keyup.popup");
+                    guidigo.alert_popup = null;
+                    return;
+                }
+
+                guidigo.show_next();
+
+            }
+        });
+
+    }
+
+    guidigo.show_confirm_popup = function (message, title, okHandler, cancelHandler) {
+
+    }
+
+    var loadingBox;
+    var slc;
+    var closeOnLoad = false;
+    function hideLoading() {
+        slc = true;
+        $(".loading-msg-container").fadeOut();
+    }
+    function showLoading(message) {
+        slc = false;
+        $(".loading-msg-container").fadeIn(function () {
+            if (slc)
+                setTimeout(function () {
+                    $(".loading-msg-container").fadeOut();
+                }, 100);
+        });
+        return false;
+    }
+
+    function confirm(message, title, okHandler, cancelHandler) {
+        title = title ? title : 'Confirmation';
+        var popup = $("#confirm-js-window");
+
+        popup.find("#title").html(title);
+        popup.find("#text").html(message);
+
+        var okButton = popup.find("#button-ok");
+        okButton.unbind("click");
+        okButton.bind("click", function (e) {
+            okHandler();
+            popup.trigger("close");
+            e.preventDefault();
+        })
+
+        var cancelButton = popup.find("#button-cancel");
+        cancelButton.unbind("click");
+        if (cancelHandler) {
+            cancelButton.bind("click", function (e) { cancelHandler(); e.preventDefault(); })
+        }
+        popup.lightbox_me({
+            centered: true,
+            closeClick: false,
+            closeEsc: false,
+            closeSelector: ".close-window",
+            overlayCSS: {
+                background: 'black',
+                opacity: .2
+            },
+            zIndex: 9999
+        });
+    }
+    function info(message, time) {
+        time = time ? time : 4000;
+        var popup = $("#info-js-container");
+        popup.find("#message").html(message);
+
+        popup.fadeIn();
+        setTimeout(function () {
+            popup.fadeOut('fast');
+        }, time);
+        return false;
+    }
+
+    var saveDiscaedPopup;
+    var action = "";
+    function saveOrDiscard(message, saveHandler, discardHandler, closeHandler) {
+        var popup = $("#changes-window").clone();
+        popup.find("#text").html(message);
+
+        var okButton = popup.find("#button-save");
+        okButton.unbind("click");
+        okButton.bind("click", function (e) {
+            saveHandler();
+            action = "saving";
+            popup.trigger("close");
+            e.preventDefault();
+        })
+
+        var cancelButton = popup.find("#button-discard");
+        cancelButton.unbind("click");
+
+        cancelButton.bind("click", function (e) {
+            action = "canceling";
+            if (discardHandler)
+                discardHandler();
+            popup.trigger("close");
+            e.preventDefault();
+        });
+        popup.lightbox_me({
+            centered: true,
+            closeClick: false,
+            closeSelector: ".close-window",
+            overlayCSS: {
+                background: 'black',
+                opacity: .2
+            },
+            destroyOnClose: true,
+            onLoad: function () {
+                action = "";
+            },
+            onClose: function () {
+                if (action != "saving" && action != "canceling" && typeof closeHandler != 'undefined') {
+
+                    closeHandler();
+                }
+            },
+            zIndex: 9999
+        });
+    }
+
+    function setLoadingHeight() {
+
+        $loadingc = $('.loading-msg-container');
+        if ($(window).height() < $(document).height()) {
+            $loadingc.css({ height: $(document).height() + 'px' });
+        } else {
+            $loadingc.css({ height: '100%' });
+            //if (ie6) {
+            //    $('html,body').css('height', '100%');
+            //} // ie6 hack for height: 100%; TODO: handle this in IE7
+        }
+    }
+    $(function () {
+        $(window).resize(setLoadingHeight);
+
+    });
+
+</script>
+<div class="loading-msg-container dn">
+
+    <div class="loading-msg">
+        <img src="./images/working.gif" alt="">
+        Working…
+
+    </div>
+
+</div>
+
+<div class="lightbox-window lightbox-changes dn" id="confirm-js-window">
+    <div class="lightbox-window-inner">
+        <h3 id="title" class="lightbox-title"></h3>
+        <p class="lb-stop lb-center" id="text">
+            Do you want to delete stop 03. Theatre of Pompey/Da Pancrazio. (this action cannot
+            be undone)
+        </p>
+        <div class="del-ctrl clearfix">
+            <div>
+                <div>
+                    <a href="https://studio.guidigo.com/browse-tours#" class="medium-button close-window" id="button-ok"><span>OK</span></a>
+                    <a href="https://studio.guidigo.com/browse-tours#" class="medium-button-action close-window" id="button-cancel"><span>Cancel</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end lightbox-window-inner //-->
+</div>
+<!-- end lightbox-window //-->
+<div class="lightbox-window lightbox-changes dn" id="alert-js-window">
+    <div class="lightbox-window-inner">
+        <h3 id="title" class="lightbox-title"></h3>
+        <p class="lb-stop lb-center" id="text">
+        </p>
+        <div class="del-ctrl clearfix">
+            <div>
+                <div>
+                    <a href="https://studio.guidigo.com/browse-tours#" class="medium-button medium-button-action close-window" id="button-ok"><span>
+                        OK</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end lightbox-window-inner //-->
+</div>
+
+
+<div class="lightbox-window lightbox-changes dn" id="quota-alert-js-window">
+    <div class="lightbox-window-inner">
+        <h3 id="title" class="lightbox-title">Plan Limit Reached</h3>
+        <p class="lb-stop lb-center">
+            Sorry, this tour can't be published with your current plan because:
+            <br>
+            <br>
+            <span class="lb-stop lb-center" id="text"></span>
+            <br>
+            We advise you to <a href="http://www.guidigo.com/pricing">upgrade your account.</a>
+        </p>
+
+
+        <div class="del-ctrl clearfix">
+            <div>
+                <div>
+                    <a href="https://studio.guidigo.com/browse-tours#" class="medium-button medium-button-action close-window" id="button-ok"><span>
+                        OK</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end lightbox-window-inner //-->
+</div>
+
+<!-- end lightbox-window //-->
+<div class="lightbox-window lightbox-loading dn" id="loading-js-window">
+    <div class="lightbox-window-inner">
+        <p class="lb-center">
+            <img src="./images/preload.gif"><br>
+            <span id="text">Working…</span>
+        </p>
+    </div>
+    <!-- end lightbox-window-inner //-->
+</div>
+<!-- end lightbox-window //-->
+
+<!-- end lightbox-window //-->
+<div class="alert-box-container" id="info-js-container">
+    <div class="alert-box" id="message">
+        If notification message is very long i think its ok for it to go in two or more
+        rows like this.
+    </div>
+</div>
+<div class="lightbox-window lightbox-changes dn" id="changes-window">
+    <div class="lightbox-window-inner">
+        <h3 class="lightbox-title lightbox-title-left">
+            You have unsaved changes <a href="https://studio.guidigo.com/browse-tours#" class="close-lightbox close-window ir">close</a>
+        </h3>
+        <p class="lb-stop" id="text">
+            Please save or discard your changes to continue.
+        </p>
+        <div class="changes-ctrl clearfix">
+            <a href="https://studio.guidigo.com/browse-tours#" class="medium-button" id="button-discard"><span>Discard</span></a>
+            <a href="https://studio.guidigo.com/browse-tours#" class="medium-button-action" id="button-save"><span>Save</span></a>
+        </div>
+    </div>
+    <!-- end lightbox-window-inner //-->
+</div>
+<!-- end lightbox-window //-->
+
+</body></html>
