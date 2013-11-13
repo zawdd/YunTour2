@@ -1,29 +1,4 @@
 //function 工具函数
-var toggleFooterButton = function () {
-    if ($(".input-changed").length == 0) {
-        $("#footerbtn-savechange, #footerbtn-discardchange").hide();
-        $("#footer-inside .large-button-action-next").show();
-    } else {
-        $("#footerbtn-savechange, #footerbtn-discardchange").show();
-        $("#footer-inside .large-button-action-next").hide();
-    }
-}
-var initTrackChange=function(){
-    $(".track-change").each(function(n,t){
-        var i=$(t).attr("type")=="checkbox"?$(t).is(":checked"):$(t).val();
-        $(t).data("initval",i),
-        $(t).unbind("change.tracking"),
-        $(t).bind("change.tracking",function(){
-            var i=$(t).attr("type")=="checkbox"?$(t).is(":checked"):$(t).val();i!=$(t).data("initval")?$(this).addClass("input-changed"):
-            $(this).removeClass("input-changed"),toggleFooterButton()}),
-            $(t).attr("type")!="hidden"&&$(t).attr("type")!="checkbox"&&($(t).unbind("keyup.tracking"),
-            $(t).bind("keyup.tracking", function(){
-                $(this).val()!=$(t).data("initval")?$(this).addClass("input-changed"):$(this).removeClass("input-changed"),toggleFooterButton()
-            })
-    )});
-    $("#footerbtn-savechange, #footerbtn-discardchange").hide();
-    $("#footer-inside .large-button-action-next").show();
-}
 var checkChanges = function(){
     if ($(".input-changed").length > 0)
         return true;
@@ -74,6 +49,62 @@ var setNoStopState = function(){
     $("#button-savechange, #button-discardchange, #sortableCheckboxFromList").hide();
     $("#button-addnewstop, .add-stop-arrow, .nostops").show();
 }
+var activeNext = function(){
+    $("#footer-inside .large-button-action-next")
+        .removeClass("large-next-disabled")
+        .removeAttr("disabled", "disabled")
+        .unbind("click")
+        .attr("title", "")
+        .qtip("destroy");
+          
+         
+    $('.step-disabled a').unbind("click");
+    $(".step-disabled").removeClass("step-disabled");   
+};
+var unactiveNext = function(){
+    $(".stop-dependant").addClass("step-disabled");   
+    $('.step-disabled a').bind("click", function () {
+        return false;
+    });
+
+    $("#footer-inside .large-button-action-next").addClass("large-next-disabled");
+    $("#footer-inside .large-button-action-next")
+        .attr("disabled", "disabled")
+        .bind("click",function(e){
+            e.preventDefault();
+            return false;
+        }).attr("title", "You must add at least one stop")
+            .qtip({
+                content: {
+                    attr: 'title'
+                },
+                position: {
+                    my: 'bottom left',  // Position my top left...
+                    at: 'top left', // at the bottom right of...
+                    adjust: {
+                        x: 50
+                    }
+                },
+                show: {
+                    delay: 0
+                },
+                events: {
+                    render: function (event, api) {
+                        // Grab the tip element
+                        var elem = api.elements.tip;
+                    }
+                },
+                style: {
+                    tip: {
+                        corner: 'bottom left',
+                        mimic: 'bottom center',
+                        offset: 20, // Give it 5px offset from the side of the tooltip
+                        width: 11,
+                        height: 7
+                    }
+                }
+            });
+} 
 //添加SelectBox    
 var reorderSelectBoxFromList = function() {
     var n;
@@ -101,15 +132,14 @@ $(document).ready(function() {
 	$("#file_upload1").uploadify({   
         'swf' : '/uploadify.swf',
         'uploader' : '/uploadhandler',
-        'fileTypeExts' : '*.gif; *.jpg; *.png; *.jpeg',
+        'fileTypeExts' : '*.gif; *.jpg; *.png',
         'buttonText' : '请选择图片',
         'removeCompleted' : false,
         'multi' : true,
         'onUploadSuccess' : function(file, data, response){ /////////////////////////////请在onComplete函数里将cover-img修改
-        var imgPath = JSON.parse(data).uploadFileName;
-		$("#thumb-container").attr("style", "background-repeat:no-repeat; background-image:url("+ imgPath +"); background-size: 144px; background-position:center;");
+        	var imgPath = JSON.parse(data).uploadFileName;
+		$(".thumb-container").attr("style", "background-repeat:no-repeat; background-image:url("+ imgPath +");");
 		$(".images-list li:first").find("img").attr("src", imgPath);
-		$("#stopthumbnail").val(imgPath).trigger("change");
         }
     });
     
@@ -117,43 +147,22 @@ $(document).ready(function() {
         'swf' : '/uploadify.swf',
         'uploader' : '/uploadhandler',
         // Your options here
-        'fileTypeExts' : '*.gif; *.jpg; *.png, *.jpeg',
+        'fileTypeExts' : '*.gif; *.jpg; *.png',
         'buttonText' : '请选择图片',
         'removeCompleted' : false,
-        'multi' : true,
-        'itemTemplate' : '<div></div>',
-		'onUploadSuccess' : function(file, data, response) { /////////////////////////////请在onComplete函数里将cover-img修改
-        	var imgPath = JSON.parse(data).uploadFileName;
+        'multi' : true
+	'onUploadSuccess' : function(file, data, response) { /////////////////////////////请在onComplete函数里将cover-img修改
+
         	var cloneLi = $(".images-list li:first").clone();
+
         	cloneLi.find("img").attr("src", imgPath);
+
         	$(".images-list").append(cloneLi);
-					var str = $("#stopimages").val();
-					str = str + imgPath + ",";
-	        //英文的逗号	
-					$("#stopimages").attr("value", str).trigger("change");
-		
-			}	    
-    });
-		$("#footerbtn-discardchange").click(function (e) {
-			$(".input-changed").each(function (index) {
-          $(this).val($(this).data("initval"));
-          $(this).removeClass("input-changed");
-      });
 
-			var coverPath = $("stopthumbnail").data();
-      $("#cover-img").attr("src", coverPath);
-        
-      toggleFooterButton();
-      e.preventDefault();
-		});
-    $("#footerbtn-savechange").bind("click", function (e) {
+        }
 	    
-       $(window).unbind('beforeunload');//////////////清除之前为了track-change，会重新bind
-       $('#stop-form').trigger('submit');/////////////trigger(submit)
-       //toggleFooterButton();//////////////////////////底部button变
-       //e.preventDefault();
     });
-
+    
     $("#file_upload3").uploadify({   
         'swf' : '/uploadify.swf',
         'uploader' : '/uploadhandler',
@@ -161,21 +170,30 @@ $(document).ready(function() {
         'buttonText' : '请选择mp3	',
         'removeCompleted' : false,
         'multi' : true,
-				'onUploadSuccess' : function(file, data, response) { /////////////////////////////请在onComplete函数里将cover-img修改
+	'onUploadSuccess' : function(file, data, response) { /////////////////////////////请在onComplete函数里将cover-img修改
+
         	var audPath = JSON.parse(data).uploadFileName;
-        	$("#jquery_jplayer_1").jPlayer("destroy");
+
         	$("#jquery_jplayer_1").jPlayer({
+
 				 ready: function (event) {
+
 					 $(this).jPlayer("setMedia", {
-					 	mp3:audPath
+
 					 }).jPlayer("play", 0);
+
 				 },
+
 				 swfPath: "javascripts",
+
 				 supplied: "mp3",
+
 				 preload: 'auto',
+
 				 wmode: "window"
+
 			 });
-			 $("#stopaudio").attr("value", audPath).trigger("change");
+
         }
         
     });
@@ -185,33 +203,13 @@ $(document).ready(function() {
         $(window).scrollTop() > 334 ? ($(".black-bar-container").addClass("fixed").css("top", "-15px"), 
         $(".step2-container").css("margin-top", "84px")) : ($(".black-bar-container").removeClass("fixed").css("top", "0"), 
         $(".step2-container").css("margin-top", "-10px"))
-    });
-
-    $(".f-del").bind("click", function () {
-	 		confirm("真的要删除吗?", "确认", function () {
-	 		tours = [];
-	 		tours.push($("#lineId").val());
-	 		$.ajax({/////////////////////////////////////////POST到url然后，delete了这个路线，求接口
-                type: "POST",
-                url: baseUrl + "Delete",
-                traditional: true,
-                data: { 'listTour': tours },
-                success: function (result) {
-                    $(window).unbind('beforeunload');
-                    location.href = "/";
-                },
-                error: function () {
-                    info("Unexpected error");
-                    hideLoading();
-                }
-            });
-	 		});
-	 	});
+    }),
+    
     $(".il-remove").live("click",function() {
-        var t = $(this).parent().parent();
-        //n = $(t).find("img").data("position"),
-        //i = $(".seek-marker");
-        return confirm("真的要删除该图片？", "",
+        var t = $(this).parent().parent(),
+        n = $(t).find("img").data("position"),
+        i = $(".seek-marker");
+        return confirm(strMessageConfirmDeleteImage, "",
         function() {
             $.ajax({
                 url: baseUrl + "Stop/DeleteImage/",///////////////////////////修改这个接口
@@ -221,14 +219,14 @@ $(document).ready(function() {
                     imageID: values[n].imageID
                 },
                 success: function(r) {
-                    if (r && r.success) return info("删除成功"),
+                    if (r && r.success) return info(strMessageSucceedDeleteImage),
                     $(t).empty(),
-                    //$(i[n]).remove(),
-                    //values.remove(n),
-                    //checkNoImages(),
-                    //reorder(),
+                    $(i[n]).remove(),
+                    values.remove(n),
+                    checkNoImages(),
+                    reorder(),
                     !1;
-                    info("失败")
+                    info(strMessageErrorDeleting)
                 }
             })
         }),
@@ -255,4 +253,25 @@ $(document).ready(function() {
     });
 
     $(".elastic").elastic();
+    
+    $(".f-del").bind("click", function () {
+	 	confirm("真的要删除吗?", "确认", function () {
+	 		tours = [];
+	 		tours.push($("#lineId").val());
+	 		$.ajax({/////////////////////////////////////////POST到url然后，delete了这个路线，求接口
+                type: "POST",
+                url: baseUrl + "Delete",
+                traditional: true,
+                data: { 'listTour': tours },
+                success: function (result) {
+                    $(window).unbind('beforeunload');
+                    location.href = "/";
+                },
+                error: function () {
+                    info("Unexpected error");
+                    hideLoading();
+                }
+            });
+	 	});
+	 });
 });

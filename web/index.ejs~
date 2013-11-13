@@ -2,40 +2,63 @@
 <html>
   <head>
     <title><%= title %></title>
-		<link rel="icon" href="/ic_launcher.png" type="image/x-icon">
-    <link rel="shortcut icon" href="/ic_launcher.png" type="image/x-icon">    
+    
     <link rel='stylesheet' href='/stylesheets/bootstrap.css' />
     <link rel='stylesheet' href='/stylesheets/bootstrap-responsive.css' />
     <link rel='stylesheet' href='/stylesheets/main-css.css' />
-
-    <script src="/javascripts/jquery.min.js"></script>
-	<script src="/javascripts/libs.js"></script>
+    <script src="./javascripts/jquery.min.js"></script>
     <script src="/javascripts/bootstrap.js"></script>
-	<script src="/javascripts/jquery.qrcode.min.js"></script>
-    <script> 
-	
-	function loadqrcode(w,h){		
-		jQuery(function(){
-			jQuery('#qrcode').qrcode({
-				render : "canvas",
-				text : "http://goo.gl/bX01Pp",
-				width : w,
-				height : h
-				});
-		});
-		
-	}
-	
-	function downcode(){
-		$('#myModal').modal('show');
-	}
-	</script>
+    
   </head>
-<body onload="loadqrcode(380,380)">
-<% include header %>
+  <body>
+    <header id="home-header">
+        <div id="header-content">
+            <h1><a href="/">
+            	<img src="/images/yunyou.png" style="width: 168px"></a>
+            </h1>
+            <nav id="main-nav">
+                <ul class="clearfix">
+                    <li class="/browse"><a href="/browse">观看线路</a></li>
+                    <li class="/create"><a href="/create">创建线路</a></li>
+                </ul>
+		</nav>
+		<% if (!user) {%>
+			<div id="sub-nav">
+				<ul class="subnav-links clearfix">            
+					<li>
+						<a href="/signin" id="signin-nav-btn">登录</a>
+					</li>
+					<li>
+						<a href="/signup" id="signup-nav-btn">注册</a>
+					</li>   
+				</ul>
+			</div>
+	        <% } else { %>
+	<div id="sub-nav">
+			<ul class="subnav-links clearfix">
+				<li id="subnav-user">
+                    <a href="#" class="dropbtn">
+                        <em><span><%= user.userEmail %></span></em>
+                    </a>
+                    <div class="subnav-dropdown" id="sn-user-dropdown">
+                        <span class="sn-user-email"></span>
+                        <ul class="sn-meta">                                    
+                            <li><a href="/" target="_blank">主页</a></li>
+                            <li><a href="" target="_blank">设置</a></li>
+                        </ul>
+                        <ul>                                    
+                            <li><a href="/logout">退出帐号</a></li>
+                        </ul>
+                    </div>
+                </li>				
+			</ul>
+		</div>    
+		<% } %>
 
-<div id="main-home">
-    <div id="myCarousel" class="carousel slide" style="margin:0 0 20px 0; width:100%;">
+        </div>
+    </header>
+    <div id="main-home">
+    <div id="myCarousel" class="carousel slide" style="margin:0 0 20px 0;">
 	  <ol class="carousel-indicators">
 	    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 	    <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -60,7 +83,7 @@
 	    	<img src="/images/3.jpg" alt="">
 	    	<div class="carousel-caption">
               <h4>香港初见一日游</h4>
-              <p>第一次到达香港惊慌失措？不知何去何从？跟随我的脚步。美食、风景，为您一一呈现……</p>
+              <p>第一次到达香港惊慌失措？不知何去何从？跟随我的脚步，美食、风景，为您一一呈现……</p>
             </div>
         </div>
 	  </div>
@@ -83,34 +106,11 @@
                 可以从网站这里下载手机app~~~随时随地分享~
             </p>
 
-            <!-- <a class="button" data-toggle="modal" data-target="#mymodal"><span>App下载</span></a> -->
-			<a class="button" onclick="downcode()"><span>App下载</span></a> 
-			 <!-- <button class="btn btn-warning btn-lg" data-toggle="modal" data-target="#myModal">App下载</button> -->
+            <a href="/download" class="button"><span>App下载</span></a>
             <img src="/images/experience-tours.png" class="phone" alt="">
                         
         </div>
     </div>
     </div>
-	
-
-	
-	 <div id="myModal" class="modal hide fade">            
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h3 style="color:#FF8C00"><b>扫描二维码下载到手机<b></h3>
-            </div><!--Modal header-->
-            <div class="modal-body">						
-					<center><div id="qrcode" ></div></center>
-            </div><!--Modal body-->
-            <div class="modal-footer">
-              <a style="color:#F4A460"" href="http://goo.gl/bX01Pp"><b>本地下载<b></a>
-            </div><!--Modal footer-->
-     </div> <!--Modal-->
-		  
-		
   </body>
-	
-
-	
-	
 </html>

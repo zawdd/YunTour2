@@ -5,8 +5,7 @@
     <link href="./stylesheets/main.css" rel="stylesheet">
     <link href="./stylesheets/step1-css.css" rel="stylesheet">
     <link href="./stylesheets/uploadify.css" rel="stylesheet">
-	<link rel="icon" href="/ic_launcher.png" type="image/x-icon">
-    <link rel="shortcut icon" href="/ic_launcher.png" type="image/x-icon">
+
     <script src="./javascripts/jquery.min.js"></script>
     <script src="./javascripts/libs.js"></script>
 
@@ -30,13 +29,11 @@
 <body>
 <header id="home-header">
     <div id="header-content">
-        <h1 style="width: 600px">
+        <h1>
         <a href="/">
-        	<img src="/images/yunyou2.png" style="width: 168px"></a>
-        <a href="/">
-          <img src="/images/logo/fengqi_asia_logo3.png" style="width: 208px; padding-top: 15px;"></a>
+            <img src="/images/yunyou2.png" style="width: 168px"></a>
         </h1>
-				<div id="sub-nav">
+        <div id="sub-nav">
             <ul class="subnav-links clearfix">
                 <li id="subnav-user">
                     <a href="#" class="dropbtn">
@@ -65,7 +62,7 @@
     <div id="subheader-steps-inside">
         <ul class="steps-tabs clearfix">
             <li class="step-description step-active">
-                <a href="#">
+                <a href="/step1">
                     <span>
                         <em>第一步</em>
                         <strong>线路概况</strong>
@@ -73,15 +70,15 @@
                 </a>
             </li>
             <li class="step-tourstops">
-                <a href="#">
+                <a href="/step2">
                     <span>
                         <em>第二步</em>
-                        <strong>创建站点</strong>
+                        <strong>第n站点</strong>
                     </span>
                 </a>
             </li>
             <li class="step-map stop-dependant">
-                <a href="#">
+                <a href="/step3">
                     <span>
                         <em>第三步</em>
                         <strong>地图设置</strong>
@@ -109,10 +106,10 @@
             <div class="cover-thumb" >
                 <div class="cover-contain" style="background-image:url()">
 			<img src="" id="cover-img" style="width: 179px">
-			<input value="" id="coverThumbnail" name="coverThumbnail" type="hidden" class="track-change" data-val="true" data-val-required="必须填写" >
+			<input value="" id="coverThumbnail" name="coverimg" type="hidden"  >
                 </div>
             </div>
-            <input name="file_upload" id="file_upload">
+            <input name="file_upload" id="file_upload" class="track-change" data-val="true" data-val-required="必须填写" value="">
         </div>
         <div class="error-msg">
             <span class="field-validation-valid" data-valmsg-for="Thumbnail" data-valmsg-replace="true"></span>
@@ -158,7 +155,7 @@
         <div class="td-field-inner">
             <h3 class="us-title">
                 <em class="star">*</em>
-                <label for="Location">地点</label>
+                <label for="Description">地点</label>
             </h3>
             <input id="mapAddress" name="mapAddress" class="txtfield track-change" 
                 placeholder="请输入地址" data-val="true" data-val-required="必须填写" type="text" value="" autocomplete="off">                        
@@ -213,12 +210,12 @@
 <footer>
     <div id="footer-inside">
         <a href="/create" class="f-exit" >退出</a>
-        <!--<a href="#" class="f-del">删除</a>-->
-				<a href="#" class="preview-button"><img src="/images/logo/logo.png" style="width: 280px;"></a>
+        <a href="#" class="f-del">删除</a>
+
         <p class="back-next">
             <a href="javascript:void(0);" class="large-button" id="footerbtn-discardchange" style=""><span>丢弃</span></a> 
             <a href="javascript:void(0);" class="large-button-action" id="footerbtn-savechange" style=""><span>保存</span></a>
-						<a href="/step2" class="large-button-action large-button-action-next large-next-disabled" disabled="disabled" style="display: none;" title="下一个站点"><span>2. 站点</span></a>
+
         </p>
     </div>
 </footer>

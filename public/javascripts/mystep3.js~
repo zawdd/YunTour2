@@ -49,7 +49,7 @@ function addLatLng(event) {
 		setIcon(marker, no+1);
 		path.push(event.latLng);
 		markers.push(marker);
-		$("#map-form input#"+(no+1)).attr("value", event.latLng.lat()+','+event.latLng.lng()).addClass("input-changed");
+		$("#map-form input#"+(no+1)).attr("value", event.latLng.lat()+','+event.latLng.lng());
 		no++;
 
 	} else {
@@ -110,11 +110,7 @@ $(function () {
 	*/
     $("#footerbtn-savechange").bind("click", function (e) {
        	//$(window).unbind('beforeunload');//////////////清除之前为了track-change，会重新bind
-       	if($(".input-changed").length == num) {
-        	$('#map-form').trigger('submit');/////////////trigger(submit)
-				} else {
-					alert("请添加坐标");
-				}
+        $('#tour-form').trigger('submit');/////////////trigger(submit)
        // toggleFooterButton();//////////////////////////底部button变
          e.preventDefault();
      });

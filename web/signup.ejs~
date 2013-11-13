@@ -3,8 +3,7 @@
 <head>
 	<link href="/stylesheets/main-css.css" rel="stylesheet">
 	<link href="/stylesheets/signin.css" rel="stylesheet">
-	<link rel="icon" href="/ic_launcher.png" type="image/x-icon">
-    <link rel="shortcut icon" href="/ic_launcher.png" type="image/x-icon">	
+	
 	<script src="/javascripts/jquery.min.js"></script>
 	<script src="/javascripts/jqueryui.js"></script>
 </head>
@@ -39,7 +38,7 @@
     <div class="ss-win-container" style="margin: 10px auto;">
         <div class="ss-win" id="ss-signin-1">
             <h2 class="signin-title">注册</h2>
-			<form action="/signup" id="guidigo-form-login" method="post" novalidate="novalidate">
+			<form action="/signin" id="guidigo-form-login" method="post" novalidate="novalidate">
 				<input name="__RequestVerificationToken" type="hidden" value="cqj6HYwKI7G9V0f2d3n6XcMkz8Yd8OzHWsYxbUApOxqXkNe0NJ5l-x-eWg-1ltfOcqAYgiTMREdHDhf_hUw67sFGdzj5Rvo5aMlHX8MRDUYEWylfDRhjYYVErgnZq0FrKgO5zg2">                            
 				<fieldset>
                 <div class="ss-field">
@@ -52,7 +51,7 @@
 
                 <div class="ss-field">
                     <label for="signin-pass">密码</label>
-                    <input data-val="true" data-val-required="The Password field is required." id="password" name="password" placeholder="密码" tabindex="2" type="password">
+                    <input data-val="true" data-val-required="The Password field is required." id="signin-pass" name="password" placeholder="密码" tabindex="2" type="password">
                     <!-- <a href="" class="open-ss-forgot" id="osf-1">忘记密码？</a> 暂不-->
                     <div class="error-msg">
                     	<span class="field-validation-valid" data-valmsg-for="password" data-valmsg-replace="true"></span>
@@ -60,7 +59,7 @@
                 </div>
                 <div class="ss-field">
                     <label for="signin-pass">请重新输入密码</label>
-                    <input data-val="true" data-val-required="The Password field is required." id="password-repeat" name="password-repeat" placeholder="重新输入密码" tabindex="2" type="password">
+                    <input data-val="true" data-val-required="The Password field is required." id="signin-pass2" name="password-repeat" placeholder="重新输入密码" tabindex="2" type="password">
                     <!-- <a href="" class="open-ss-forgot" id="osf-1">忘记密码？</a> 暂不-->
                     <div class="error-msg">
                     	<span class="field-validation-valid" data-valmsg-for="password" data-valmsg-replace="true"></span>

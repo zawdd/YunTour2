@@ -6,8 +6,7 @@
     <link href="/stylesheets/main-css.css" rel="stylesheet">
     <link href="/stylesheets/settings.css" rel="stylesheet">
     <link rel="stylesheet" href="./stylesheets/uploadify.css">
-		<link rel="icon" href="/ic_launcher.png" type="image/x-icon">
-    <link rel="shortcut icon" href="/ic_launcher.png" type="image/x-icon">    
+    
     <script src="/javascripts/jquery.min.js"></script>
     <script src="/javascripts/libs.js"></script>
 	<script src="/javascripts/jqueryui.js"></script>
@@ -66,11 +65,12 @@
                 <fieldset class="bl-form-set clearfix">
                     <div class="pers-image">
                         <label>个性图像</label>
-			<div class="personal-image not-empty" id="image-thumb" style="background-repeat:no-repeat; background-image:url();">
-				<img id="coverimg" name="coverimg" src="" width=150 height=150>
+			<div class="personal-image not-empty" id="image-thumb" style="background-repeat:no-repeat; background-image:url(<%= uploadFileName %>);">
+				<img scr= <%= uploadFileName %>>
 				<input value="" id="userimage" name="userimage" type="hidden"  >
                         </div>
-                    </div>
+		</div>
+		
                     <!-- .pers-image -->
                     <input class="track-change" id="Photo" name="Photo" type="hidden" value="imported19272f95-6172-41aa-ba8e-329ae1071990thumb.jpg">
                     <div class="pers-info">
@@ -78,7 +78,7 @@
                             <em class="star">*</em>
                             名字
                         </label>
-                        <input class="bl-field forcounter track-change" data-val="true" data-val-length="type between 0 and 18 characters" data-val-length-max="18" data-val-required="compulsory field" id="DisplayName" maxlength="18" name="username" placeholder="在创建路线显示的名字" type="text" value="">
+                        <input class="bl-field forcounter track-change" data-val="true" data-val-length="type between 0 and 18 characters" data-val-length-max="18" data-val-required="compulsory field" id="DisplayName" maxlength="18" name="username" placeholder="your display name" type="text" value="FangX">
                         <p class="charleft"><span>5</span>/18</p>
 
                         <div class="error-msg error-msg-yourname">
@@ -93,7 +93,7 @@
                             <span class="field-validation-valid" data-valmsg-for="CountryID" data-valmsg-replace="true"></span>
                         </div>
                         <div class="clearfix">
-                       		<input name="file_upload" id="file_upload" value="" style="left: 30px">
+					<input name="file_upload" id="file_upload" value="" style="left: 30px">
                         </div>
                         <script type="text/javascript">
                         $(function(){
@@ -106,9 +106,7 @@
 						        'multi' : true,
 						        "onUploadSuccess":function(file, data, response){ /////////////////////////////请在onComplete函数里将cover-img修改
 							$("#cover-img").attr("style", "background-repeat:no-repeat; background-image:url(" + JSON.parse(data).uploadFileName + ");");
-							$("#userimage").attr('value', JSON.parse(data).uploadFileName);
-							$("#coverimg").attr('src', JSON.parse(data).uploadFileName);
-							}
+							//$("#userimage").attr('value', JSON.parse(data).uploadFileName);
 						    });
                         });
                         </script>
@@ -122,7 +120,7 @@
                             <em class="star">*</em>
                             短描述
                         </label>
-                        <input class="bl-field forcounter has-suggestion track-change" data-val="true" data-val-length="type between 0 and 50 characters" data-val-length-max="50" data-val-required="compulsory field" data_suggestion="Describe yourself briefly." id="usershort" maxlength="50" name="usershort" placeholder="一句话描述下自己" type="text" value="">
+                        <input class="bl-field forcounter has-suggestion track-change" data-val="true" data-val-length="type between 0 and 50 characters" data-val-length-max="50" data-val-required="compulsory field" data_suggestion="Describe yourself briefly." id="usershort" maxlength="50" name="usershort" placeholder="Enter short bio" type="text" value="I&#39;m a shuage">
                         <p class="charleft"><span>12</span>/50</p>
 
                         <div class="error-msg"><span class="field-validation-valid" data-valmsg-for="ShortPresentation" data-valmsg-replace="true"></span></div>
@@ -132,7 +130,7 @@
                         <label for="pers-longbio">
                             长描述
                         </label>
-                        <textarea class="txtarea forcounter has-suggestion elastic track-change" cols="20" data-maxchars="1000" data-suggestion="Visitors want to know more about who created this tour!" data-val="true" data-val-length="type between 0 and 1000 characters" data-val-length-max="1000" id="Presentation" name="Presentation" placeholder="让大家更认识自己" rows="2"></textarea>
+                        <textarea class="txtarea forcounter has-suggestion elastic track-change" cols="20" data-maxchars="1000" data-suggestion="Visitors want to know more about who created this tour!" data-val="true" data-val-length="type between 0 and 1000 characters" data-val-length-max="1000" id="Presentation" name="Presentation" placeholder="Long bio here" rows="2"></textarea>
                         <p class="charleft"><span>0</span>/1000</p>
                         <div class="error-msg"><span class="field-validation-valid" data-valmsg-for="Presentation" data-valmsg-replace="true"></span></div>
                     </fieldset>
@@ -145,8 +143,8 @@
         </div>
         <!-- billing and payment -->
         <fieldset class="form-foot">
-            <input type="submit" value="保存" class="med-btn off-btn" id="save-submit">
-            <input type="button" value="取消" class="med-btn" id="save-cancel">
+            <input type="submit" value="Save changes" class="med-btn off-btn" id="save-submit">
+            <input type="button" value="Cancel" class="med-btn" id="save-cancel">
             
         </fieldset>
 </form>

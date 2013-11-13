@@ -55,13 +55,24 @@ $.validator.setDefaults({
 var formHandler = function (e) {
     var $form = $(this);
     if (!$form.valid || $form.valid()) {
-    	//alert("form.valid");////////////////////////post数据，先序列化，返回json
+    	alert("form.valid");////////////////////////post数据，先序列化，返回json
     	$.post($form.attr('action'), $form.serializeArray())
     		.done(function (json) {
-	    		$(".input-changed").removeClass("input-changed");
-    			$(".large-next-disabled").removeClass("large-next-disabled").removeAttr("disabled", "disabled");
-          initTrackChange();	
-				}).error(function () {
+    			json = json || {};
+                // In case of success, we redirect to the provided URL or the same page.
+                if (json.success) {
+                    if (json.redirect) {
+                        location = json.redirect || location.href;
+                    }
+                    $(".input-changed").removeClass("input-changed");
+                    initTrackChange();
+                } else if (json.errors) {
+                    var items = $.map(json.errors, function (error) {
+                        return error + '<br />';
+                    }).join('');
+                    alert(items);
+                }
+    		}).error(function () {
                 alert("erreur");
             });
     } else {
@@ -172,13 +183,12 @@ $(document).ready(
         $("#file_upload").uploadify({   
             'swf' : '/uploadify.swf',
             'uploader' : '/uploadhandler',
-            'fileTypeExts' : '*.gif; *.jpg; *.png; *jpeg',
+            'fileTypeExts' : '*.gif; *.jpg; *.png',
             'buttonText' : '请选择图片',
             'removeCompleted' : false,
             'multi' : true,
-            'onUploadSuccess' : function(file, data, response){ /////////////////////////////请在onComplete函数里将cover-img修改
-            	$("#cover-img").attr("src", JSON.parse(data).uploadFileName );
-							$("#coverThumbnail").val(JSON.parse(data).uploadFileName).trigger("change");
+            onComplete:function(n,t,i,r){ /////////////////////////////请在onComplete函数里将cover-img修改
+            	$("#cover-img").attr("src", "/photo"+r);
             }
         });
         
@@ -313,6 +323,5 @@ $(document).ready(
             toggleFooterButton();
             e.preventDefault();
         });
-    });
-		 $(".elastic").elastic();
+    })
 });
